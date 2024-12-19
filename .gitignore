@@ -1,0 +1,24 @@
+__pycache__/
+venv/
+
+# 编辑器或IDE生成的文件
+.DS_Store
+.idea/
+*.suo
+*.user
+*.swp
+*~
+
+# 操作系统生成的文件
+Thumbs.db
+
+# 数据文件夹
+data/processed/*  
+data/raw/*       
+!data/raw/.gitkeep 
+
+# 其他
+*.egg-info
+dist/
+build/
+*.log
