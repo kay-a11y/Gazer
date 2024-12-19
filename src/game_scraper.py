@@ -124,36 +124,6 @@ def get_app_info(app_id, update_player_data=False):
         else:
           print(f"由于未找到玩家数据，且无法获取游戏名称，无法判断游戏({app_id}) 是否拥有。")
 
-        # 注释掉获取史低价格的代码块
-        # try:
-        #     url_steamdb = f"https://steamdb.info/api/v2/app/{app_id}"
-        #     response_steamdb = requests.get(url_steamdb)
-        #     response_steamdb.raise_for_status()
-        #     steamdb_data = response_steamdb.json()
-        #     lowest_recorded_price = steamdb_data.get('data', {}).get('price_lowest', None)
-        #     if lowest_recorded_price:
-        #         lowest_recorded_price = lowest_recorded_price / 100
-        #         lowest_recorded_price = float(lowest_recorded_price)
-        #         lowest_recorded_date_timestamp = steamdb_data.get('data', {}).get('price_lowest_date', None)
-        #         if lowest_recorded_date_timestamp:
-        #             lowest_recorded_date = datetime.fromtimestamp(lowest_recorded_date_timestamp, tz=timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S')
-        #         else:
-        #             lowest_recorded_date = "未知"
-        #     else:
-        #         lowest_recorded_date = "未知"
-        # except requests.exceptions.RequestException as e:
-        #     print(f"访问SteamDB出错：{e}")
-        #     lowest_recorded_price = "未知"
-        #     lowest_recorded_date = "未知"
-        # except (KeyError, IndexError, TypeError) as e:
-        #     print(f"解析SteamDB JSON 数据出错：{e}")
-        #     lowest_recorded_price = "未知"
-        #     lowest_recorded_date = "未知"
-        # except Exception as e:
-        #     print(f"访问SteamDB发生未知错误：{e}")
-        #     lowest_recorded_price = "未知"
-        #     lowest_recorded_date = "未知"
-
         app_info = {
             "app_id": app_id,
             "name": app_name,
@@ -165,8 +135,6 @@ def get_app_info(app_id, update_player_data=False):
             "price": current_price,
             "initial_price": initial_price,
             "discount_pct": discount_pct,
-            "lowest_recorded_price": "无法获取", # lowest_recorded_price
-            "lowest_recorded_date": "无法获取", # lowest_recorded_date
             "release_date": release_date.get('date', "未知"),
             "is_owned": is_owned, #是否拥有
         }
@@ -207,13 +175,11 @@ def get_app_info(app_id, update_player_data=False):
         if app_info['discount_pct'] > 0:
             print(f"原价：{app_info['initial_price']}")
             print(f"折扣：{app_info['discount_pct']}%")
-        print(f"史低价格：{app_info['lowest_recorded_price']} 元")
-        print(f"上次史低时间：{app_info['lowest_recorded_date']}")
         print(f"发行日期：{app_info['release_date']}")
         print("-" * 50)
         print("\n")
 
-    except Exception as e: # 捕获所有可能的异常，并输出更详细的信息
+    except Exception as e: 
         if game_name:
             print(f"处理游戏 {game_name} ({app_id}) 时发生错误：{e}")
         else:

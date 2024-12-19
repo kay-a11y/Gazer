@@ -3,7 +3,7 @@ import json, os
 
 STEAM_API_KEY = "YOU_API_KEY"  # API 密钥 TODO
 STEAM_ID = "0000000000000000"  # 查询的玩家的 Steam ID TODO
-OUTPUT_DIR = r"E:SteamGaze\data\raw" 
+OUTPUT_DIR = r"E:SteamGaze\data\raw"  # 路径填写 TODO
 
 def format_playtime(minutes):
     """将分钟数格式化为"小时 分钟"的字符串。"""
