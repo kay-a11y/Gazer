@@ -5,9 +5,9 @@ import player_scraper
 import argparse  
 
 STEAM_API_KEY = "YOU_API_KEY" # API 密钥 TODO
-OUTPUT_DIR = r"E:SteamGaze\data\raw" # 路径填写 TODO
+OUTPUT_DIR = r"E:\Gazer\SteamGaze\data\raw" # 路径填写 TODO
 
-APP_LIST_FILE = r"E:SteamGaze\app_list.json" #app列表保存的文件名
+APP_LIST_FILE = r"E:\Gazer\SteamGaze\app_list.json" #app列表保存的文件名
 
 def find_app_name_by_id(app_id):
     try:
