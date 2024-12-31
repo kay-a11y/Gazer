@@ -1,72 +1,84 @@
-# 使用 Python 访问 Steam API：玩家与游戏信息提取
+# Gazer
 
-## 介绍
+[![GitHub Stars](https://img.shields.io/github/stars/kay-a11y/Gazer.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kay-a11y/Gazer/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/kay-a11y/Gazer.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/kay-a11y/Gazer/fork)
+[![GitHub Issues](https://img.shields.io/github/issues/kay-a11y/Gazer.svg)](https://github.com/kay-a11y/Gazer/issues)
 
-这是一个用Python编写的Steam游戏数据采集工具, 分为玩家数据采集`player_scraper.py`和游戏信息采集`game_scraper.py`两个脚本。
+## 简介 (Introduction)
 
-**`player_scraper.py`输出预览:**
+**Gazer** 是一个多功能的 Python 工具集合，简化各种平台的数抓取、分析和自动化任务。目前已支持微博、豆瓣和 Steam 平台，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具 Have fun!
 
-```text
-数据已保存到：E:\...\0000000000000000_steam_data.json
-玩家 SteamID: 0000000000000000
--------------------- 基本信息 --------------------
-昵称: random_steamid
-头像: https://avatars.steamstatic.com/00000000000000.jpg
-个人资料链接: https://steamcommunity.com/profiles/0000000000000000/
-在线状态: 0
--------------------- 封禁信息 --------------------
-VAC 封禁: False
-游戏封禁: 0
-社区封禁: False
--------------------- 拥有游戏 --------------------
-共拥有 41 款游戏:
-- (AppID: 1172470) Apex Legends                                           222 小时 37 分钟
-- (AppID: 1515210) The Past Within                                          4 小时 9 分钟
-- (AppID:  365450) Hacknet                                                  3 小时 6 分钟
-- (AppID:  230410) Warframe                                                 0 小时 0 分钟
--------------------- 最近游玩游戏 --------------------
-该玩家最近没有玩过游戏。
+## 功能特性 (Features)
+
+*   **数据抓取:** 从微博、豆瓣、Steam 等平台抓取数据。
+*   **数据分析:** 对抓取到的数据进行分析和处理。
+*   **自动化:** 自动化执行一些任务。
+*   **持续更新:**  持续更新中
+
+## 支持平台 (Supported Platforms)
+
+*   **微博 (Weibo):** 抓取用户数据、微博内容等。
+*   **豆瓣 (Douban):** 抓取电影、书籍、音乐等信息; 设置书影仅自己可见。
+*   **Steam:** 抓取游戏信息、玩家数据等。
+*   **Reddit (TODO):** 晚点🐱更新。
+*   **Telegram (TODO):** 晚点🐱更新。
+
+## 项目结构 (Project Structure)
+
+```
+Gazer                                                       //
+├─ .gitignore                                               //
+├─ DoubanGaze                                               //
+│  └─ src                                                   //
+│     ├─ no_peeking.py                                      //
+│     └─ no_peeking4book.py                                 //
+├─ how-tos                                                  //
+│  ├─ Python Selenium 爬虫入门：批量将豆瓣书影标记设置为"仅自己可见".md  // `no_peeking.py` `no_peeking4book.py`
+│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md  //`game_scraper.py` `player_scraper.py`
+│  └─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md  // `GhostwriterWeibo_v2.py`
+├─ LICENSE                                                  //
+├─ README2.md                                               //
+├─ SteamGaze                                                //
+│  ├─ app_list.json                                         //
+│  ├─ data                                                  //
+│  └─ src                                                   //
+│     ├─ game_scraper.py                                    //
+│     └─ player_scraper.py                                  //
+└─ WeiboGaze                                                //
+   ├─ data                                                  //
+   │  └─ sendpics                                           //
+   └─ src                                                   //
+      └─ GhostwriterWeibo_v2.py                             //
+
 ```
 
-**`game_scraper.py`输出预览:**
+## 快速开始 (Quick Start)
 
-```text
-请输入游戏名称：hacknet
-AppID 365450 (Hacknet) 的数据已保存到：E:\...\365450_Hacknet.json
+1. **克隆项目:**
+    ```bash
+    git clone https://github.com/kay-a11y/Gazer.git
+    ```
+2. **安装依赖:**
+    ```bash
+    cd Gazer
+    pip install -r requirements.txt # 晚点🐱更新
+    ```
+3. **查看使用指南:**  每个脚本工具的具体使用方法，请参考 `how-tos` 文件夹中的使用指南。
 
-正在查询玩家 ID: 0000000000000000 玩家昵称: random_steamid
---------------------------------------------------
-游戏名称：Hacknet
-AppID：365450
-是否拥有：是
-发行商：Fellow Traveller
-开发商：Team Fractal Alligator
-游戏类型：Indie, Simulation
-游戏模式：单人
-支持手柄：是
-当前价格：¥ 42.00
-发行日期：12 Aug, 2015
---------------------------------------------------
-```
+## 使用指南 (How-Tos)
 
-## 使用方法
+详细的使用指南和教程，请参考项目中的 `how-tos` 文件夹：
 
-1. 设置配置信息(Steam API密钥和Steam ID)
+## 贡献 (Contributing)
 
-2. 同时获取玩家数据和游戏数据:
+欢迎任何形式的贡献！如果你有任何建议或想法，请随时提出 Issue 或 Pull Request。
 
-```bash
-python player_scraper.py
-请输入游戏名称: hacknet
-```
+## 许可证 (License)
 
-## 注意事项
+本项目采用 AGPLv3 许可证。详情请参阅 [LICENSE](LICENSE) 文件。
 
-- 需要有效的Steam API密钥
-<https://steamcommunity.com/dev>
+## 联系作者 (Contact)
 
-- 玩家的游戏库需要设置为公开
+如果你有任何问题或建议，~~不要~~通过以下方式联系作者：
 
-- 建议使用try-except处理网络请求异常
-
-这个工具可以帮助快速查询Steam游戏信息和玩家数据, 可扩展爬取史低信息。
+*   GitHub Issues: [https://github.com/kay-a11y/Gazer/issues](https://github.com/kay-a11y/Gazer/issues)

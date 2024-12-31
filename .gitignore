@@ -22,3 +22,6 @@ data/raw/*
 dist/
 build/
 *.log
+
+raw/
+processed/
