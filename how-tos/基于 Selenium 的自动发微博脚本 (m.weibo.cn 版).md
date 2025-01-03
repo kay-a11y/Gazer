@@ -1,3 +1,7 @@
+> **免责声明：** 在使用此指南之前，请务必仔细阅读并理解 [DISCLAIMER.md](DISCLAIMER.md) 文件中的免责声明。
+
+---
+
 # **基于 Selenium 的自动发微博脚本 (m.weibo.cn 版) - 在IDE中畅所欲言!**
 
 Hi!! 分享一个刚写的自动发微博的 Python 脚本!
@@ -8,7 +12,7 @@ Hi!! 分享一个刚写的自动发微博的 Python 脚本!
 *   开启网页容易影响代码专注力, 看见微博就想刷停不下来
 *   让 IDE **cover** 程序员/媛们, 即使是工作中也可以在IDE中尽情输出! （毕竟，谁会想到你在 IDE 里发微博呢？😏）
 
-**目标很明确：**
+## **目标很明确：**
 
 *   自动登录微博
 *   填写微博内容!
@@ -16,7 +20,7 @@ Hi!! 分享一个刚写的自动发微博的 Python 脚本!
 *   选择微博可见性（有些内容~~见不得人~~只想分享给特定的人😉）
 *   自动发布微博！
 
-**使用的工具和库：**
+## **使用的工具和库：**
 
 *   **Python 3:** 编程语言，简单易学，功能强大。
 *   **Selenium:** 一个自动化测试工具，可以模拟用户在浏览器中的操作。
@@ -25,7 +29,7 @@ Hi!! 分享一个刚写的自动发微博的 Python 脚本!
 *   **Edge WebDriver:** 微软 Edge 浏览器的驱动程序，用于控制 Edge 浏览器。
 *   **send2trash:** 将文件安全地移动到回收站.
 
-**核心代码 (GhostwriterWeibo_v2.py)：**
+## **核心代码 (GhostwriterWeibo_v2.py)：**
 
 ```python
 import time 
@@ -154,9 +158,9 @@ FU**K Johhny Silverhand
     driver.quit()
 ```
 
-**一些要点记录：**
+## **一些要点记录：**
 
-**1. Selenium 和 Bs4 元素定位对象和点击问题**
+### **1. Selenium 和 Bs4 元素定位对象和点击问题**
 
 错误❌ *用 `soup` 定位到文本框之后, 直接点击*
 
@@ -184,7 +188,7 @@ weibo_textarea.send_keys("这是我的第一条自动发布的微博！")
 
 ```
 
-**2. 上传文件按钮的元素定位:**
+### **2. 上传文件按钮的元素定位:**
 
 当点击网页上的"选择文件"按钮时，弹出的那个**选择本地文件的窗口**，它是**操作系统的原生窗口**，而不是浏览器窗口的一部分。`Selenium` 的 `WebDriver` 主要是用来操作浏览器内的网页元素的，它**无法直接控制这种原生的操作系统窗口**。
 
@@ -213,27 +217,27 @@ weibo_textarea.send_keys("这是我的第一条自动发布的微博！")
     file_input.send_keys("C:/Users/Pictures/cute_Timid_Mushroom1.jpg")
     ```
 
-**3. 图片上传, 剪贴板读取:**
+### **3. 图片上传, 剪贴板读取:**
 
 `pyperclip.paste()` 无法直接读取剪贴板中的图片. 需要使用 `Pillow` 库的 `ImageGrab.grabclipboard()` 来获取图片. 通过 `ImageGrab.grabclipboard()` 实现了从剪贴板读取图片. 支持使用截图软件将截图保存在剪贴板, 或在本地文件中复制的图片文件.
 
-**4.不同的网页版本选择**
+### **4.不同的网页版本选择**
 
 一开始选择的是 `weibo.cn`, aka *微博手机版*, 这个版本需要先找到`高级`元素点击后跳转到发布微博 `https://weibo.cn/mblog/sendmblog?st=d00000`, 再次解析网页, 进行后续操作. 而且测试后发现发布的图片压缩严重, 转而使用 `m.weibo.cn` ( *微博HTML5版* ), 图片质量良好.
 
-**改进方向：**
+## **改进方向：**
 
 *   **支持多张图片上传。**
 *   **更智能的 Cookie 管理：** 自动获取最新的 Cookie，避免手动更新。
 *   **更友好的用户界面：** 可以考虑使用图形界面，方便用户操作。
 *   **支持更多的微博功能：** 例如定时发布、评论、转发等等。
 
-**项目地址:** [Github 链接](https://github.com/kay-a11y/Gazer)
-
-*   **文件相对路径和文件名**: `WeiboGaze/src/GhostwriterWeibo_v2.py`
-
-**使用和修改时的注意事项:**
+### **使用和修改时的注意事项:**
 
 *   **`driver_path`:** 修改为你自己的 `msedgedriver.exe` 的路径.
 *   **`cookies_str`:** 修改成你自己的 `m.weibo.cn` 的 Cookie 字符串.
 *   **图片保存路径:** `read_my_pics_from_clip` 函数中的 `save_dir` 修改成希望保存图片的路径.
+
+### **项目地址:** [Github 链接](https://github.com/kay-a11y/Gazer)
+
+*   **文件相对路径和文件名**: `WeiboGaze/src/GhostwriterWeibo_v2.py`
