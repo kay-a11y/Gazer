@@ -66,8 +66,11 @@ def ghost_writer(driver, writer, onlyme=2, uppics=None):
     # 等待文本框可见
     weibo_textarea = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div > span > textarea')))
     # driver.execute_script("arguments[0].scrollIntoView();", weibo_textarea)
-    # 输入想发布的微博内容
-    weibo_textarea.send_keys(writer)
+
+    # 使用 JavaScript 设置文本框的值
+    driver.execute_script("arguments[0].value = arguments[1];", weibo_textarea, writer)
+    # 触发 input 事件
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", weibo_textarea)
 
     # 上传图片
     if uppics:
@@ -89,13 +92,16 @@ def ghost_writer(driver, writer, onlyme=2, uppics=None):
             # time.sleep(0.3)
     else:
         print(f"可见性参数错误: onlyme={onlyme}, 应该在 0, 1, 2 中选择.")
-  
-    # 提交微博
-    # 等待提交按钮可见
-    submit_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div.m-box.m-flex-grow1.m-box-model.m-fd-row.m-aln-center.m-justify-end.m-flex-base0 > a')))
-    submit_button.click()
-    time.sleep(2)
-    print("微博发布成功")
+
+    try:
+        # 提交微博
+        # 等待提交按钮可见
+        submit_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div.m-box.m-flex-grow1.m-box-model.m-fd-row.m-aln-center.m-justify-end.m-flex-base0 > a')))
+
+        submit_button.click()
+        print("微博发布成功")
+    except Exception as e:
+        print(f"微博发布失败: {e}")
     
 def read_my_pics_from_clip(number=1):
     """读取剪贴板中的前number张图片, 储存并返回图片路径列表
@@ -183,7 +189,7 @@ if __name__ == "__main__":
     driver.maximize_window()
 
     # 3. 添加 Cookie
-    cookies_str = "YOUR_COOKIE_STRING"  # TODO 将这里替换成你的 Cookie 字符串
+    cookies_str = "SWEET_COOKIE🐱"  # TODO 将这里替换成你的 Cookie 字符串
     add_cookies_to_driver(driver, cookies_str)
 
     driver.get("https://m.weibo.cn/compose/") # TODO

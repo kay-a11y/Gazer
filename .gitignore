@@ -1,5 +1,5 @@
 __pycache__/
-venv/
+.venv/
 
 # 编辑器或IDE生成的文件
 .DS_Store

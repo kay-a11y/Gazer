@@ -1,3 +1,7 @@
+> **免责声明：** 在使用此指南之前，请务必仔细阅读并理解 [DISCLAIMER.md](DISCLAIMER.md) 文件中的免责声明。
+
+---
+
 # 使用 Python 访问 Steam API：玩家与游戏信息提取
 
 ## 介绍
