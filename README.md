@@ -6,7 +6,7 @@
 
 ## 简介 (Introduction)
 
-**Gazer** 是一个多功能的 Python 工具集合，简化各种平台的数抓取、分析和自动化任务。目前已支持微博、豆瓣和 Steam 平台，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具 Have fun!
+**Gazer** 是一个多功能的 Python 工具集合，简化各种平台的数抓取、分析和自动化任务, 探讨API的获取方式。目前已支持微博、豆瓣和 Steam 平台，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具 Have fun!
 
 ## 功能特性 (Features)
 
@@ -33,13 +33,14 @@ Gazer                                                       //
 │     ├─ no_peeking.py                                      //
 │     └─ no_peeking4book.py                                 //
 ├─ how-tos                                                  //
-│  ├─ Python Selenium 爬虫入门：批量将豆瓣书影标记设置为"仅自己可见".md  // `no_peeking.py` `no_peeking4book.py`
-│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md  //`game_scraper.py` `player_scraper.py`
-│  ├─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md  // `GhostwriterWeibo_v2.py`
+│  ├─ Python Selenium 爬虫入门：批量将豆瓣书影标记设置为"仅自己可见".md                    // `no_peeking.py` `no_peeking4book.py`
+│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md                                  //`game_scraper.py` `player_scraper.py`
+│  ├─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md                                 // `GhostwriterWeibo_v2.py`
 │  ├─ Debug 过程逐步分析：使用 JS 注入绕过 msedgedriver 的字符处理逻辑并触发表单提交元素.md  // `GhostwriterWeibo_v2.py`
-│  └── DISCLAIMER.md                                         //
+│  ├─ 获取评论or点赞微博的API.md                                                        // `comment_weibo_api.py` `like_weibo_api.py`
+│  └─ DISCLAIMER.md                                         //
 ├─ LICENSE                                                  //
-├─ README.md                                               //
+├─ README.md                                                //
 ├─ SteamGaze                                                //
 │  ├─ app_list.json                                         //
 │  ├─ data                                                  //
@@ -50,11 +51,13 @@ Gazer                                                       //
    ├─ data                                                  //
    │  └─ sendpics                                           //
    └─ src                                                   //
-      ├─ get_cookie_and_st.py                               //
-      ├─ send_weibo_api.py                                 //
       ├─ GhostwriterWeibo_v2.py                             //
-      └─ go_update_mycookie.py                             //
-
+      └─ API                                                //
+          ├─ get_cookie_and_st.py                           //
+          ├─ send_weibo_api.py                              //
+          ├─ go_update_mycookie.py                          //
+          ├─ comment_weibo_api.py                           //
+          └─ like_weibo_api.py                              //
 ```
 
 ## 快速开始 (Quick Start)
