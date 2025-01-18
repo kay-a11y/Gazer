@@ -203,7 +203,8 @@ edge_options.add_argument("--log-level=3")  # 0: INFO, 1: WARNING, 2: ERROR, 3: 
 
 ---
 
-## 文件相对路径和文件名
+## 脚本地址： 
 
-`Gazer\DoubanGaze\src\no_peeking.py`
-`Gazer\DoubanGaze\src\no_peeking4book.py`
+[no_peeking.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/no_peeking.py)
+
+[no_peeking4book.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/no_peeking4book.py)

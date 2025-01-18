@@ -1282,3 +1282,11 @@ def send_weibo(content, visible=6, cookie=None, x_xsrf_token=None):
 ***不开源的人是戒过毒啊?!***
 
 ***Have Fun!!***
+
+## 脚本地址：
+
+[send_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/send_weibo_api.py)
+
+[get_cookie_and_st.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/get_cookie_and_st.py)
+
+[go_update_mycookie.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/go_update_mycookie.py)
