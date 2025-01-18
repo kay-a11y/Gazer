@@ -238,6 +238,6 @@ weibo_textarea.send_keys("这是我的第一条自动发布的微博！")
 *   **`cookies_str`:** 修改成你自己的 `m.weibo.cn` 的 Cookie 字符串.
 *   **图片保存路径:** `read_my_pics_from_clip` 函数中的 `save_dir` 修改成希望保存图片的路径.
 
-### **项目地址:** [Github 链接](https://github.com/kay-a11y/Gazer)
+### **脚本地址:** 
 
-*   **文件相对路径和文件名**: `WeiboGaze/src/GhostwriterWeibo_v2.py`
+[GhostwriterWeibo_v2.py](https://github.com/kay-a11y/Gazer/blob/main/WeiboGaze/src/GhostwriterWeibo_v2.py)

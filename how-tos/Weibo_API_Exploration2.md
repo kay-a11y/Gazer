@@ -704,4 +704,8 @@ like_or_unlike_weibo(weibo_url, "unlike", cookie=cookie_str, x_xsrf_token=st)
 *   尝试找到删除评论的真正 API 接口。
 *   探索更多的微博 API 接口，例如获取用户信息、获取评论列表等。
 
+## 脚本地址：
 
+[comment_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/comment_weibo_api.py)
+
+[like_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/like_weibo_api.py)

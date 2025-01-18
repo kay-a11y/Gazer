@@ -75,7 +75,8 @@ python player_scraper.py
 
 这个工具可以帮助快速查询Steam游戏信息和玩家数据, 可扩展爬取史低信息。
 
-## 文件相对路径和文件名
+## 脚本地址：
 
-`Gazer\SteamGaze\src\game_scraper.py`
-`Gazer\SteamGaze\src\player_scraper.py`
+[game_scraper.py](https://github.com/kay-a11y/Gazer/blob/main/SteamGaze/src/game_scraper.py)
+
+[player_scraper.py](https://github.com/kay-a11y/Gazer/blob/main/SteamGaze/src/player_scraper.py)

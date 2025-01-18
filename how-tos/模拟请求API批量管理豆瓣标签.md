@@ -130,7 +130,4 @@ else:
 
 `main` 执行 `del_tags`。豆瓣标签过多可能需要多次才能删完，所以在主函数处增加循环逻辑，并在循环内部添加一个退出机制，让脚本可以持续删除标签。
 
-## 项目地址： [TagAssassin 脚本](https://github.com/kay-a11y/Gazer)
-
-**文件相对路径和文件名**： `DoubanGaze/src/API/TagAssassin.py`
-
+## 脚本地址： [TagAssassin.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/TagAssassin.py)
