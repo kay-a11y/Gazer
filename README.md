@@ -22,7 +22,7 @@
 *   **Steam:** 抓取游戏信息、玩家数据等。
 *   **Reddit (TODO):** 
 *   **Telegram (TODO):** 
-*   **Eudic**: 自己看🐱
+*   **Eudic**: 欧路词典语境翻译API
 
 ## 项目结构 (Project Structure)
 
@@ -32,7 +32,9 @@ Gazer                                                       //
 ├─ DoubanGaze                                               //
 │  └─ src                                                   //
 │     ├─ no_peeking.py                                      //
-│     └─ no_peeking4book.py                                 //
+│     ├─ no_peeking4book.py                                 //
+│     └─ API
+│         └─ TagAssassin.py                                 //
 ├─ how-tos                                                  //
 │  ├─ Python Selenium 爬虫入门：批量将豆瓣书影标记设置为"仅自己可见".md                    // `no_peeking.py` `no_peeking4book.py`
 │  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md                                  //`game_scraper.py` `player_scraper.py`
@@ -41,6 +43,7 @@ Gazer                                                       //
 │  ├─ Weibo_API_Exploration.md                                                       // `GhostwriterWeibo_v2.py`
 │  ├─ Weibo_API_Exploration2.md                                                      // `comment_weibo_api.py` `like_weibo_api.py`
 │  ├─ Eudic.md                                                                       // `eudic_api.py`
+│  ├─ 模拟请求/api批量管理豆瓣标签.md                                                       // `TagAssassin.py`
 │  └─ DISCLAIMER.md                                         //
 ├─ LICENSE                                                  //
 ├─ README.md                                                //
@@ -76,7 +79,7 @@ Gazer                                                       //
 2. **安装依赖:**
     ```bash
     cd Gazer
-    pip install -r requirements.txt # 还没🐱更新
+    pip install -r requirements.txt
     ```
 3. **查看使用指南:**  每个脚本工具的具体使用方法，请参考 `how-tos` 文件夹中的使用指南。
 
