@@ -190,7 +190,7 @@ def get_movie_info(driver, item_url):
 def get_book_info(driver, item_url):
     """
     将搜索到的书籍信息输出到终端: 用户相关: 是否标记, 标记日期, 我的标签, 我的短评
-    条目信息: 类型, 官网(如果有), 制片国家, 语言, 首播, 季数, 集数, 单集片长, 又名, IMDb, 剧情简介
+    条目信息: 出版社, 出品方, 原作名, 译者, 出版年, 页数, 定价, 装帧, 丛书, ISBN
 
     Args:
         driver (webdriver.Edge): Edge WebDriver 对象。
