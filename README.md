@@ -27,15 +27,17 @@
 ## 项目结构 (Project Structure)
 
 ```
-Gazer                                                       //
-├─ .gitignore                                               //
-├─ DoubanGaze                                               //
-│  └─ src                                                   //
-│     ├─ no_peeking.py                                      //
-│     ├─ no_peeking4book.py                                 //
+Gazer                                                       
+├─ .gitignore                                               
+├─ DoubanGaze                                               
+│  └─ src                                                   
+│     ├─ no_peeking.py                                      
+│     ├─ no_peeking4book.py                                 
 │     └─ API
-│         └─ TagAssassin.py                                 //
-├─ how-tos                                                  //
+│         ├─ TagAssassin_v2.py                              
+│         ├─ get_item_info.py                               
+│         └─ MovieWishlister.py                             
+├─ how-tos                                                  
 │  ├─ Python Selenium 爬虫入门：批量将豆瓣书影标记设置为"仅自己可见".md                    // `no_peeking.py` `no_peeking4book.py`
 │  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md                                  //`game_scraper.py` `player_scraper.py`
 │  ├─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md                                 // `GhostwriterWeibo_v2.py`
@@ -43,31 +45,31 @@ Gazer                                                       //
 │  ├─ Weibo_API_Exploration.md                                                       // `GhostwriterWeibo_v2.py`
 │  ├─ Weibo_API_Exploration2.md                                                      // `comment_weibo_api.py` `like_weibo_api.py`
 │  ├─ Eudic.md                                                                       // `eudic_api.py`
-│  ├─ 模拟请求/api批量管理豆瓣标签.md                                                       // `TagAssassin.py`
-│  └─ DISCLAIMER.md                                         //
-├─ LICENSE                                                  //
-├─ README.md                                                //
-├─ SteamGaze                                                //
-│  ├─ app_list.json                                         //
-│  ├─ data                                                  //
-│  └─ src                                                   //
-│     ├─ game_scraper.py                                    //
-│     └─ player_scraper.py                                  //
-├─ WeiboGaze                                                //
-│  ├─ data                                                  //
-│  │  └─ sendpics                                           //
-│  └─ src                                                   //
-│     ├─ GhostwriterWeibo_v2.py                             //
-│     └─ API                                                //
-│         ├─ get_cookie_and_st.py                           //
-│         ├─ send_weibo_api.py                              //
-│         ├─ go_update_mycookie.py                          //
-│         ├─ comment_weibo_api.py                           //
-│         └─ like_weibo_api.py                              //
+│  ├─ 模拟请求/api批量管理豆瓣标签.md                                                   // `TagAssassin_v2.py`
+│  ├─ 豆瓣API-我在IDE上标记想看的电影.md                                                // `get_item_info.py` `MovieWishlister.py`
+│  └─ DISCLAIMER.md                                                                  // Reading this will level up your geek cred. +1000 XP       
+├─ LICENSE                                                  
+├─ README.md                                                
+├─ SteamGaze                                                
+│  ├─ app_list.json                                         
+│  ├─ data                                                  
+│  └─ src                                                   
+│     ├─ game_scraper.py                                    
+│     └─ player_scraper.py                                  
+├─ WeiboGaze                                                
+│  ├─ data                                                  
+│  │  └─ sendpics                                           
+│  └─ src                                                   
+│     ├─ GhostwriterWeibo_v2.py                             
+│     └─ API                                                
+│         ├─ get_cookie_and_st.py                           
+│         ├─ send_weibo_api.py                             
+│         ├─ go_update_mycookie.py                          
+│         ├─ comment_weibo_api.py                           
+│         └─ like_weibo_api.py                              
 └─ EudicGaze
-     └─ src                                                 //
-        └─ eudic_api.py                                     //
-    
+     └─ src                                                 
+        └─ eudic_api.py                                     
 ```
 
 ## 快速开始 (Quick Start)
