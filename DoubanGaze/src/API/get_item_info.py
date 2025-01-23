@@ -190,7 +190,7 @@ def get_movie_info(driver, item_url):
 def get_book_info(driver, item_url):
     """
     将搜索到的书籍信息输出到终端: 用户相关: 是否标记, 标记日期, 我的标签, 我的短评
-    条目信息: 出版社, 出品方, 原作名, 译者, 出版年, 页数, 定价, 装帧, 丛书, ISBN
+    条目信息: 评分, 出版社, 出品方, 原作名, 译者, 出版年, 页数, 定价, 装帧, 丛书, ISBN
 
     Args:
         driver (webdriver.Edge): Edge WebDriver 对象。
@@ -241,6 +241,14 @@ def get_book_info(driver, item_url):
         # --- 非用户信息部分 (也使用 Selenium) ---
         info = soup.find(id="info")
         base_info = ""
+
+        # 评分
+        rate_element = soup.select_one('#interest_sectl div.rating_wrap.clearbox div.rating_self.clearfix strong') 
+        if rate_element:
+            rate_text = rate_element.text.strip()
+            print(f"评分: {rate_text}")
+        else:
+            print("没有找到评分")
 
         if info:  # 确保找到了 id="info" 的元素
             for child in info.children:
