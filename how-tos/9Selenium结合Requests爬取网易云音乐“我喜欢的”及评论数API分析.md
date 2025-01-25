@@ -319,3 +319,16 @@ else:
 ## **项目地址:** [Github 链接](https://github.com/kay-a11y/Gazer)
    **文件相对路径**: `NeteaseCloudMusicGaze/src/API/get_comment.py`
    `NeteaseCloudMusicGaze/src/access_cookie.py` `NeteaseCloudMusicGaze/src/yo_i_pwned_your_playlist.py`
+   https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/access_cookie.py
+
+## **脚本地址:** 
+
+[yo_i_pwned_your_playlist.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/yo_i_pwned_your_playlist.py)
+
+[access_cookie.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/access_cookie.py)
+
+[get_comment.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/API/get_comment.py)
+
+
+
+
