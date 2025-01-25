@@ -6,23 +6,23 @@
 
 ## 简介 (Introduction)
 
-**Gazer** 是一个多功能的 Python 工具集合，简化各种平台的数抓取、分析和自动化任务, 探讨API的获取方式。目前已支持微博、豆瓣和 Steam 平台，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具 Have fun!
+**Gazer** 基于 Python 和 Web 逆向，探索各平台的 API 的获取方式，简化各种平台的数据抓取、分析和自动化各种（奇怪的）任务。本项目为所有脚本提供了详细的文档教程和使用说明。
+
+目前更新了微博、豆瓣、Steam、网易云平台、欧路词典，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
 
 ## 功能特性 (Features)
 
 *   **数据抓取:** 从微博、豆瓣、Steam 等平台抓取数据。
-*   **数据分析:** 对抓取到的数据进行分析和处理。
+*   **数据分析:** 对抓取到的数据进行分析和可视化。
 *   **自动化:** 自动化执行一些任务。
 *   **持续更新:**  持续更新中
 
 ## 支持平台 (Supported Platforms)
 
-*   **微博 (Weibo):** 抓取用户数据、微博内容等。
-*   **豆瓣 (Douban):** 抓取电影、书籍、音乐等信息; 设置书影仅自己可见。
+*   **微博 (Weibo):** 自动发微博。
+*   **豆瓣 (Douban):** 批量管理豆瓣标签；标记条目；设置条目隐私。
 *   **Steam:** 抓取游戏信息、玩家数据等。
-*   **Reddit (TODO):** 
-*   **Telegram (TODO):** 
-*   **Eudic**: 欧路词典语境翻译API
+*   **Eudic**: 欧路词典语境翻译API。
 
 ## 项目结构 (Project Structure)
 
@@ -38,18 +38,27 @@ Gazer
 │         ├─ get_item_info.py                               
 │         └─ MovieWishlister.py                             
 ├─ how-tos                                                  
-│  ├─ Python Selenium 爬虫入门：批量将豆瓣书影标记设置为"仅自己可见".md                    // `no_peeking.py` `no_peeking4book.py`
-│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md                                  //`game_scraper.py` `player_scraper.py`
-│  ├─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md                                 // `GhostwriterWeibo_v2.py`
-│  ├─ Debug 过程逐步分析：使用 JS 注入绕过 msedgedriver 的字符处理逻辑并触发表单提交元素.md  // `GhostwriterWeibo_v2.py`
-│  ├─ Weibo_API_Exploration.md                                                       // `GhostwriterWeibo_v2.py`
-│  ├─ Weibo_API_Exploration2.md                                                      // `comment_weibo_api.py` `like_weibo_api.py`
-│  ├─ Eudic.md                                                                       // `eudic_api.py`
-│  ├─ 模拟请求/api批量管理豆瓣标签.md                                                   // `TagAssassin_v2.py`
-│  ├─ 豆瓣API-我在IDE上标记想看的电影.md                                                // `get_item_info.py` `MovieWishlister.py`
-│  └─ DISCLAIMER.md                                                                  // Reading this will level up your geek cred. +1000 XP       
+│  ├─ 基于 Selenium 的批量将豆瓣书影标记设置为"仅自己可见".md    // `no_peeking.py` `no_peeking4book.py`
+│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md        //`game_scraper.py` `player_scraper.py`
+│  ├─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md       // `GhostwriterWeibo_v2.py`
+│  ├─ 使用 JS 注入绕过 msedgedriver 的字符处理逻辑并触发表单提交元素.md // `GhostwriterWeibo_v2.py`
+│  ├─ Weibo_API_Exploration.md                             // `GhostwriterWeibo_v2.py`
+│  ├─ Weibo_API_Exploration2.md                            // `comment_weibo_api.py` `like_weibo_api.py`
+│  ├─ 欧路词典语境翻译API.md                                 // `eudic_api.py`
+│  ├─ 模拟请求/api批量管理豆瓣标签.md                         // `TagAssassin_v2.py`
+│  ├─ 豆瓣API-我在IDE上标记想看的电影.md                      // `get_item_info.py` `MovieWishlister.py`
+│  ├─ Selenium/Requests爬取网易云音乐“我喜欢的”及评论数API分析.md  // `access_cookie.py` `yo_i_pwned_your_playlist.py` `get_comment.py`
+│  └─ DISCLAIMER.md                                        // Reading this will level up your geek cred. +1000 XP       
 ├─ LICENSE                                                  
-├─ README.md                                                
+├─ README.md
+├─ NeteaseCloudMusicGaze                                                                               
+│  └─ src 
+│     ├─ __init__.py                                      
+│     ├─ access_cookie.py
+│     ├─ yo_i_pwned_your_playlist.py                     
+│     └─ API                                                
+│         ├─ __init__.py                  
+│         └─ get_comment.py                                                  
 ├─ SteamGaze                                                
 │  ├─ app_list.json                                         
 │  ├─ data                                                  
@@ -120,6 +129,6 @@ Gazer
 
 ## 联系作者 (Contact)
 
-如果你有任何问题或建议，~~不要~~通过以下方式联系作者：
+任何问题或建议，欢迎通过以下方式联系作者！
 
 *   GitHub Issues: [https://github.com/kay-a11y/Gazer/issues](https://github.com/kay-a11y/Gazer/issues)

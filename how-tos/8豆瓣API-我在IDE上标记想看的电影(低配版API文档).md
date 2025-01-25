@@ -64,9 +64,9 @@ data = {
 | 3.输入更新的完整短评 ✒️ |
 --------------------------
 1. 输入你要搜索的内容 🔍
-1984                                                   # TODO 需要输入
+1984                                          # TODO 需要输入
 select 1 for movie, 2 for book
-2                                                      # TODO 需要输入
+2                                             # TODO 需要输入
 douban_user_url = https://book.douban.com/
 请求成功
 [
@@ -157,12 +157,12 @@ ISBN:
 《1984》是一部杰出的政治寓言小说，也是一部幻想小说。作品刻画了人类在极权主义社会的生存状态，有若一个永不褪色的警示标签，警醒世人提防这种预想中的黑暗成为现实。历 经几十年，其生命力益显强大，被誉为20世纪影响最为深远的文学经典之一。
 
 2. 输入更新的完整标签 🏷️
-反乌托邦                                              # TODO 需要输入
+反乌托邦                         # TODO 需要输入
 3. 输入更新的完整短评 ✒️
-反乌托邦文学奠基之作。反乌托邦文学的经典之作，描绘了一个极权主义统治下的恐怖社会。探讨极权主义、思想控制等主题。                                  # TODO 需要输入
+反乌托邦文学奠基之作。反乌托邦文学的经典之作，描绘了一个极权主义统治下的恐怖社会。探讨极权主义、思想控制等主题。  # TODO 需要输入
 请求成功
 {"comment":"反乌托邦文学奠基之作。反乌托邦文学的经典之作，描绘了一个极权主义统治下的恐怖社会。探讨极权主义、思想控制等主题。","properties":"{\"available\":true,\"isbn\":\"7530210297\"}","apikey":"0058f4fbe4226ad7010adef3ac674085","name":"1984","otext":"想读这本书","href":"https:\/\/book.douban.com\/subject\/4820710\/","text":"反乌托邦文学奠基之作。反乌托邦文学的经典之作，描绘了一个极权主义统治下的恐怖社会。探讨极权主义、思想控制等主题。","image":"https://img1.doubanio.com\/view\/subject\/l\/public\/s4371408.jpg","redir":"https:\/\/book.douban.com\/static\/dshare_proxy.html","heading":"收藏成功。写一条广播","book_pop_sync":false,"r":0,"sub_action":"1","pop_sync":false,"action":"1","type":"book","id":"4820710","desc":"[英] 乔治·奥威尔 \/ 北京十月文艺出版社"}
-wish saved in E:\GazeKit\DoubanGaze\data\tags\book\1984_4820710_wish.json 📌
+wish saved in E:\Gazer\DoubanGaze\data\tags\book\1984_4820710_wish.json 📌
 ```
 
 ## 脚本分析
@@ -356,6 +356,6 @@ Host: movie.douban.com
 
 ## **脚本地址:** 
 
-[get_item_info.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/get_item_info.py)
+[MovieWishlister.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/MovieWishlister.py)
 
 [get_item_info.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/get_item_info.py)
