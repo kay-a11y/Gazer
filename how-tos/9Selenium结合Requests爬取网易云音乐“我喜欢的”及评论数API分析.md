@@ -29,7 +29,7 @@ API package initialized
 已爬取 7 首歌曲
 已达到最大爬取数量 7 或已爬取到最后一首歌曲，爬取结束
 已达到最大爬取数量 7，爬取结束
-已爬取的数据已保存到 E:\GazeKit\NeteaseCloudMusicGaze\data\raw\me_music_data.json
+已爬取的数据已保存到 E:\Gazer\NeteaseCloudMusicGaze\data\raw\me_music_data.json
 共爬取到 7 条数据。
 ```
 
@@ -315,11 +315,6 @@ else:
 *   **不一定所有歌曲都适用：**  这个接口可能只适用于部分歌曲，或者可能在未来某个时间失效。
 *   **限速：**  即使这个接口没有加密，网易云也可能会对请求频率进行限制，如果请求过于频繁，可能会被屏蔽。
 *   **`total` 键:** 返回的 JSON 数据中，评论总数对应的键名是 `total`，而不是 `data` 里的 `totalCount`。
-
-## **项目地址:** [Github 链接](https://github.com/kay-a11y/Gazer)
-   **文件相对路径**: `NeteaseCloudMusicGaze/src/API/get_comment.py`
-   `NeteaseCloudMusicGaze/src/access_cookie.py` `NeteaseCloudMusicGaze/src/yo_i_pwned_your_playlist.py`
-   https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/access_cookie.py
 
 ## **脚本地址:** 
 
