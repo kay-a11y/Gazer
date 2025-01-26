@@ -102,6 +102,10 @@ API package initialized
 4. 运行 `yo_i_pwned_your_playlist.py` 文件
 5. 爬取结果将保存在 `data/raw/me_music_data.json` 文件中
 
+**注意:**
+
+* 如遇类似报错 `爬取详情页 https://music.163.com/song?id=2629637793 失败：'NoneType' object has no attribute 'text'` 可能是爬取到了云盘中本地上传的音乐, 为正常错误, 忽略即可.
+
 ## `__init__.py` 文件的必要性
 
 ```python
@@ -185,7 +189,7 @@ from API.get_comment import get_comment
 
     ```python
     add_cookies_to_driver(driver, cookie)
-    driver.get("https://music.163.com/#/playlist?id=634065508")  # 访问我喜欢的音乐页面, 网易云未登录时只显示前6首, 登录时可以查看前1000首
+    driver.get("https://music.163.com/#/playlist?id=0000000")  # 访问我喜欢的音乐页面, 网易云未登录时只显示前6首, 登录时可以查看前1000首
     time.sleep(5)
     # 检查页面内容或 URL，判断是否处于登录状态
     ```
