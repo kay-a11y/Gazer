@@ -1,0 +1,32 @@
+{
+    "app_id": 365450,
+    "name": "Hacknet",
+    "publishers": [
+        "Fellow Traveller"
+    ],
+    "developers": [
+        "Team Fractal Alligator"
+    ],
+    "genres": [
+        "Indie",
+        "Simulation"
+    ],
+    "categories": [
+        "Single-player",
+        "Steam Achievements",
+        "Steam Trading Cards",
+        "Captions available",
+        "Steam Workshop",
+        "Steam Cloud",
+        "Includes level editor",
+        "Family Sharing"
+    ],
+    "supports_controller": true,
+    "price": "¥ 42.00",
+    "initial_price": "未知",
+    "discount_pct": 0,
+    "lowest_recorded_price": "无法获取",
+    "lowest_recorded_date": "无法获取",
+    "release_date": "12 Aug, 2015",
+    "is_owned": "是"
+}

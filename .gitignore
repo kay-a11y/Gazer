@@ -12,9 +12,7 @@ __pycache__/
 # 操作系统生成的文件
 Thumbs.db
 
-# 数据文件夹
-data/processed/*  
-data/raw/*       
+# 数据文件夹      
 !data/raw/.gitkeep 
 
 # 其他
@@ -22,6 +20,3 @@ data/raw/*
 dist/
 build/
 *.log
-
-raw/
-processed/

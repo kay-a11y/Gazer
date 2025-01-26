@@ -158,7 +158,7 @@ from API.get_comment import get_comment
 **在这个项目中：**
 
 *   **`src/API/__init__.py`:**  这个文件是必需的，因为它将 `API` 目录标记为一个包，使得你可以从其他模块中导入 `get_comment` 函数 (例如 `from API.get_comment import get_comment`)。
-*   **`src/__init__.py`:**  这个文件不是必需的 (除非你在 Python 3.3 之前的版本中运行代码)。因为 `src` 目录下没有 `__init__.py` 文件, 你无法直接通过 `from src.API.get_comment import get_comment` 导入 `get_comment` 函数.
+*   **`src/__init__.py`:** 这个文件不是必需的 (除非你在 Python 3.3 之前的版本中运行代码)。即使 `src` 目录下没有 `__init__.py` 文件，你仍然可以通过 `from API.get_comment import get_comment` 导入 `get_comment` 函数. 这是因为 `yo_i_pwned_your_playlist.py` 中将当前文件所在目录添加到了 Python 路径, 所以解释器能够找到 `API` 模块.
 
 ### **总结：**
 
@@ -224,7 +224,7 @@ print(driver.execute_script("return typeof window.cdc_adoQpoasnfa76pfcZLmcfl_Arr
 
 **为了稳定性和可靠性, 应该使用 Selenium 并且不要禁用 JavaScript.**
 
-## selenium 的选择器一些说明
+## Selenium 选择器的一些说明
 
 > 问题: 把选择器改成 `div.n-songtb` 和 `.m-table.m-table` , 以尝试选中整个 1000 首的歌曲列表, 在元素选项卡中可以搜索到, 但无法使用 selenium 找到歌曲元素。
 
