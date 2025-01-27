@@ -245,36 +245,37 @@ if __name__ == "__main__":
     prompt = "--------------------------\n| 添加想看steps:         |\n| 1.输入你要搜索的内容 🔍| \n| 2.输入更新的完整标签 🏷️ | \n| 3.输入更新的完整短评 ✒️ | \n--------------------------"
     print(prompt)
 
-    douban_search_url = select_movie_or_book()
+while True:
+        douban_search_url = select_movie_or_book()
 
-    if douban_search_url == "q":
-        sys.exit()
-    else:
-        search_query = input("1. 输入你要搜索的内容 🔍\n")
-        if search_query.lower() == "q":
+        if douban_search_url == "q":
             sys.exit()
         else:
-            # 只调用一次 search_sth 函数
-            item_id, item_title, item_url = search_sth(cookie, douban_search_url, search_query)
+            search_query = input("1. 输入你要搜索的内容 🔍\n")
+            if search_query.lower() == "q":
+                sys.exit()
+            else:
+                # 只调用一次 search_sth 函数
+                item_id, item_title, item_url = search_sth(cookie, douban_search_url, search_query)
 
-            # 配置 driver
-            driver_path = "E:\Gazer\drivers\msedgedriver.exe"
-            driver = create_edge_driver(driver_path)
-            add_cookies_to_driver(driver, cookie)
+                # 配置 driver
+                driver_path = "E:\Gazer\drivers\msedgedriver.exe"
+                driver = create_edge_driver(driver_path)
+                add_cookies_to_driver(driver, cookie)
 
-            # 输出搜索内容信息
-            if "movie" in douban_search_url:
-                get_movie_info(driver, item_url)
-            elif "book" in douban_search_url:
-                get_book_info(driver, item_url)
+                # 输出搜索内容信息
+                if "movie" in douban_search_url:
+                    get_movie_info(driver, item_url)
+                elif "book" in douban_search_url:
+                    get_book_info(driver, item_url)
 
-            if douban_search_url is not None:
-                my_tags = input("2. 输入更新的完整标签 🏷️\n")
-                if my_tags.lower() == "q":
-                    sys.exit()
-                my_comments = input("3. 输入更新的完整短评 ✒️\n")
-                if my_comments.lower() == "q":
-                    sys.exit()
-                else:
-                    # 将 search_sth 的返回值传递给 add_tags 函数
-                    add_tags(cookie, douban_search_url, item_title, item_id, item_url, my_tags, my_comments)
+                if douban_search_url is not None:
+                    my_tags = input("2. 输入更新的完整标签 🏷️\n")
+                    if my_tags.lower() == "q":
+                        sys.exit()
+                    my_comments = input("3. 输入更新的完整短评 ✒️\n")
+                    if my_comments.lower() == "q":
+                        sys.exit()
+                    else:
+                        # 将 search_sth 的返回值传递给 add_tags 函数
+                        add_tags(cookie, douban_search_url, item_title, item_id, item_url, my_tags, my_comments)
