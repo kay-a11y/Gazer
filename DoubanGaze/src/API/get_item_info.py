@@ -103,8 +103,6 @@ def get_movie_info(driver, item_url):
         if comments_element_2:
             comments_text_2 = comments_element_2.text.strip()
             print(f"我的短评: {comments_text_2}")
-        else:
-            print("没有找到我的短评")
         
         print("-" * 20)
         
@@ -210,7 +208,8 @@ def get_book_info(driver, item_url):
         if marked_element:
             marked_text = marked_element.contents[0].strip()
             print(f"是否标记: {marked_text}")
-        else: print(f"是否标记: 否")
+        else:
+            print("未标记")
 
         # 2. 标记日期
         date_element = soup.select_one("#interest_sect_level > .j.a_stars > .color_gray")
