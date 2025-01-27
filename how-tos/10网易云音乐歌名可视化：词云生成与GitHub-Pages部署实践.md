@@ -268,8 +268,8 @@ wordcloud = WordCloud(
 **需要注意的地方:**
 
 *   **Live Server 的依赖:** 这种方法依赖于 Live Server 能够正确地渲染你的网页. 如果你的网页在 Live Server 中显示有问题, 那么保存下来的网页也会有问题. 
-*   **`iframe` 的内容:** 你的方法会将 `iframe` 中的内容 (也就是 `qfwzk59spavk.html`) 也一起保存下来. 这通常是没问题的, 但如果 `iframe` 中的内容非常大, 或者你不希望将 `iframe` 的内容保存到本地, 那么你需要手动编辑保存后的 HTML 文件, 删除 `iframe` 相关的代码. 
-*   **如果你之后需要部署到 GitHub, 你仍需检查 `index.html` 中的文件路径是否正确.**
+*   **`iframe` 的内容:** 这种方法会将 `iframe` 中的内容 (也就是 `qfwzk59spavk.html`) 也一起保存下来. 这通常是没问题的, 但如果 `iframe` 中的内容非常大, 或者你不希望将 `iframe` 的内容保存到本地, 那么你需要手动编辑保存后的 HTML 文件, 删除 `iframe` 相关的代码. 
+*   **如果你之后需要部署到 GitHub, 需要检查 `index.html` 中的文件路径是否正确.**
 
 **确保你已经为你的仓库开启 GitHub pages:**
 
