@@ -276,3 +276,11 @@ wordcloud = WordCloud(
 可以点击 [开启 GitHub pages 教程](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Howto/Tools_and_setup/Using_GitHub_pages#%E5%8F%91%E5%B8%83%E5%86%85%E5%AE%B9) 查看
 
 开启后直接 push 到仓库同步, 等待 pages 部署完毕就能在 `https://YourGithubUserName.github.io/RepositoryName/` 看到可交互式词云已经成功部署到网站. 
+
+## **脚本地址:** 
+
+[utils.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/utils.py)
+
+[visualization.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/visualization.py)
+
+[main.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/main.py)
