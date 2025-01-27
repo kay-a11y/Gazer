@@ -6,13 +6,15 @@
 
 ## 简介 (Introduction)
 
-**Gazer** 基于 Python 和 Web 逆向，探索各平台的 API 的获取方式，简化各种平台的数据抓取、分析和自动化各种（奇怪的）任务。本项目为所有脚本提供了详细的文档教程和使用说明。
+**Gazer** 基于 Python 和 Web 逆向，探索各平台 API 的获取方式，简化数据抓取、分析和自动化各种~~奇怪的~~任务。
 
-目前更新了微博、豆瓣、Steam、网易云平台、欧路词典，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
+本项目为所有脚本提供了详细的文档教程和使用说明。持续更新中🔥🔥🔥
+
+目前更新了微博、豆瓣、Steam、网易云音乐、欧路词典，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
 
 ## 功能特性 (Features)
 
-*   **数据抓取:** 从微博、豆瓣、Steam 等平台抓取数据。
+*   **数据抓取:** 从微博、豆瓣、Steam、网易云音乐等平台抓取数据。
 *   **数据分析:** 对抓取到的数据进行分析和可视化。
 *   **自动化:** 自动化执行一些任务。
 *   **持续更新:**  持续更新中
@@ -27,8 +29,7 @@
 ## 项目结构 (Project Structure)
 
 ```
-Gazer                                                       
-├─ .gitignore                                               
+Gazer                                                                                                     
 ├─ DoubanGaze                                               
 │  └─ src                                                   
 │     ├─ no_peeking.py                                      
@@ -48,17 +49,33 @@ Gazer
 │  ├─ 模拟请求/api批量管理豆瓣标签.md                         // `TagAssassin_v2.py`
 │  ├─ 豆瓣API-我在IDE上标记想看的电影.md                      // `get_item_info.py` `MovieWishlister.py`
 │  ├─ Selenium/Requests爬取网易云音乐“我喜欢的”及评论数API分析.md  // `access_cookie.py` `yo_i_pwned_your_playlist.py` `get_comment.py`
-│  └─ DISCLAIMER.md                                        // Reading this will level up your geek cred. +1000 XP       
+│  ├─ 网易云音乐歌名可视化：词云生成与GitHub-Pages部署实践.md   // `utils.py` `visualization.py` `main.py`
+│  └─ DISCLAIMER.md                                        // Reading this will level up your geek cred. +1000 XP 🫰🏻  
+├─ .gitignore   
+├─ index_files
+├─ index.html
 ├─ LICENSE                                                  
 ├─ README.md
-├─ NeteaseCloudMusicGaze                                                                               
-│  └─ src 
-│     ├─ __init__.py                                      
-│     ├─ access_cookie.py
-│     ├─ yo_i_pwned_your_playlist.py                     
-│     └─ API                                                
-│         ├─ __init__.py                  
-│         └─ get_comment.py                                                  
+├─ requirements.txt
+│
+├─ NeteaseCloudMusicGaze
+│   ├─ data
+│   │   ├─ raw
+│   │   │   └─ me_music_data.json
+│   │   └─ title_stopwords.txt
+│   ├─ output
+│   │   └─ visualizations
+│   ├─ src
+│   │   ├─ API
+│   │   │  ├─ __init__.py                  
+│   │   │  └─ get_comment.py
+│   │   ├─ __init__.py                   
+│   │   ├─ access_cookie.py                                              
+│   │   ├─ utils.py 
+│   │   ├─ visualization.py    
+│   │   └─ yo_i_pwned_your_playlist.py    
+│   └─ main.py                           
+│                                                
 ├─ SteamGaze                                                
 │  ├─ app_list.json                                         
 │  ├─ data                                                  
@@ -80,7 +97,6 @@ Gazer
      └─ src                                                 
         └─ eudic_api.py                                     
 ```
-
 ## 快速开始 (Quick Start)
 
 1. **克隆项目:**

@@ -6,3 +6,7 @@ pillow==11.1.0
 requests==2.32.3
 selenium==4.27.1
 Send2Trash==1.8.3
+wordcloud
+matplotlib
+jieba
+numpy
