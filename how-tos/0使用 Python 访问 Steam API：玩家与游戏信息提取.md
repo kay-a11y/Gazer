@@ -4,6 +4,12 @@
 
 # 使用 Python 访问 Steam API：玩家与游戏信息提取
 
+## 脚本地址：
+
+[game_scraper.py](https://github.com/kay-a11y/Gazer/blob/main/SteamGaze/src/game_scraper.py)
+
+[player_scraper.py](https://github.com/kay-a11y/Gazer/blob/main/SteamGaze/src/player_scraper.py)
+
 ## 介绍
 
 这是一个用Python编写的Steam游戏数据采集工具, 分为玩家数据采集`player_scraper.py`和游戏信息采集`game_scraper.py`两个脚本。
@@ -74,9 +80,3 @@ python player_scraper.py
 - 建议使用try-except处理网络请求异常
 
 这个工具可以帮助快速查询Steam游戏信息和玩家数据, 可扩展爬取史低信息。
-
-## 脚本地址：
-
-[game_scraper.py](https://github.com/kay-a11y/Gazer/blob/main/SteamGaze/src/game_scraper.py)
-
-[player_scraper.py](https://github.com/kay-a11y/Gazer/blob/main/SteamGaze/src/player_scraper.py)

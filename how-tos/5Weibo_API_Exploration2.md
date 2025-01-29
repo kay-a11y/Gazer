@@ -4,6 +4,12 @@
 
 在上一篇博客中，我们成功逆向获取了域名 `m.weibo.cn` 的发微博 API。根据我在其中详述的过滤 `POST` 方法来抓包互动请求的 API 接口，可以较容易地推理出评论/点赞微博的 API 接口。
 
+## 脚本地址：
+
+[comment_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/comment_weibo_api.py)
+
+[like_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/like_weibo_api.py)
+
 ## 遗留问题
 
 上篇博客中曾提到一次 Cookie 的更新，我的 Cookie 从
@@ -704,8 +710,3 @@ like_or_unlike_weibo(weibo_url, "unlike", cookie=cookie_str, x_xsrf_token=st)
 *   尝试找到删除评论的真正 API 接口。
 *   探索更多的微博 API 接口，例如获取用户信息、获取评论列表等。
 
-## 脚本地址：
-
-[comment_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/comment_weibo_api.py)
-
-[like_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/like_weibo_api.py)

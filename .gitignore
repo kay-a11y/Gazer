@@ -1,3 +1,7 @@
+# 始终不忽略这些文件
+!*/.gitkeep
+
+# 忽略虚拟环境和 pycache
 __pycache__/
 .venv/
 

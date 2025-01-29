@@ -6,6 +6,10 @@
 
 本文记录了一次使用 Python 和 Selenium 编写微博自动发布脚本时遇到的 Debug 过程。通过这次 Debug，我深入了解了 msedgedriver 对 Unicode 字符的支持、JavaScript 事件触发机制以及 Selenium 的工作原理。
 
+## 脚本地址：
+
+[GhostwriterWeibo_v2.py](https://github.com/kay-a11y/Gazer/blob/main/WeiboGaze/src/GhostwriterWeibo_v2.py)
+
 ## 错误代码示例
 
 这里展示发送微博的核心代码块`ghost_writer`函数, 主要和表单提交以及隐式等待有关:
@@ -292,6 +296,4 @@ except Exception as e:
 -   **Selenium 的工作原理：**  对 Selenium 的 `send_keys`、`execute_script`、`wait.until` 等方法有了更深入的理解。
 -   **隐式等待的弊端：**  认识到隐式等待可能导致的问题，需要学会使用 `try...except` 来进行更精细的错误处理。
 
-## 脚本地址：
 
-[GhostwriterWeibo_v2.py](https://github.com/kay-a11y/Gazer/blob/main/WeiboGaze/src/GhostwriterWeibo_v2.py)

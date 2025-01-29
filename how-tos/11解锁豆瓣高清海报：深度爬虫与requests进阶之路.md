@@ -8,6 +8,12 @@
 
 想要爬取**最高清的海报**，答案一定是**增加爬取深度**！
 
+## **脚本地址:**
+
+[项目地址: Gazer](https://github.com/kay-a11y/Gazer)
+
+[PosterBandit.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/PosterBandit.py)
+
 ## 使用方法
 
 1.  克隆或下载项目代码。
@@ -51,7 +57,7 @@ filter: all
 ```
 
 请求网址 (GET)
-`https://movie.douban.com/people/180548717/collect?start=0&sort=time&rating=all&mode=grid&type=all&filter=all`
+`https://movie.douban.com/people/665544778/collect?start=0&sort=time&rating=all&mode=grid&type=all&filter=all`
 
 ---
 
@@ -68,7 +74,7 @@ filter: all
 ```
 
 请求网址 (GET)
-`https://movie.douban.com/people/180548717/collect?start=15&sort=time&rating=all&mode=grid&type=all&filter=all`
+`https://movie.douban.com/people/665544778/collect?start=15&sort=time&rating=all&mode=grid&type=all&filter=all`
 
 ---
 
@@ -85,7 +91,7 @@ filter: all
 ```
 
 请求网址 (GET)
-`https://movie.douban.com/people/180548717/collect?start=30&sort=time&rating=all&mode=grid&type=all&filter=all`
+`https://movie.douban.com/people/665544778/collect?start=30&sort=time&rating=all&mode=grid&type=all&filter=all`
 
 **结论：**
 
@@ -556,8 +562,3 @@ movie_titles = soup.select('div.movie p')
 
 下一篇将完善如何利用 open CV 或 pillow 来自动化拼接 `PosterBandit.py` 保存的图片 😽
 
-## **脚本地址:**
-
-[项目地址: Gazer](https://github.com/kay-a11y/Gazer)
-
-[PosterBandit.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/PosterBandit.py)

@@ -4,6 +4,8 @@
 
 豆瓣的标签杂乱但是一个一个删除又很费时间，写了个脚本来批量删除脚本，留下自定义的有意义的影视 / 书籍标签。
 
+## 脚本地址： [TagAssassin_v2.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/TagAssassin_v2.py)
+
 ## 观察 HTML 和手动发送请求
 
 ### URL
@@ -130,4 +132,3 @@ else:
 
 `main` 执行 `del_tags`。豆瓣标签过多可能需要多次才能删完，所以在主函数处增加循环逻辑，并在循环内部添加一个退出机制，让脚本可以持续删除标签。
 
-## 脚本地址： [TagAssassin_v2.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/TagAssassin_v2.py)
