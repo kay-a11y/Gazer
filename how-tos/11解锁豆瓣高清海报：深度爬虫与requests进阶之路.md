@@ -10,8 +10,6 @@
 
 ## **脚本地址:**
 
-[项目地址: Gazer](https://github.com/kay-a11y/Gazer)
-
 [PosterBandit.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/PosterBandit.py)
 
 ## 使用方法

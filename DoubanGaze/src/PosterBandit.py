@@ -42,16 +42,21 @@ def crawl_link(target_link, session, headers):
         headers (dict): 请求头
 
     Returns:
-        bs4.BeautifulSoup: soup 对象
+        tuple[bs4.BeautifulSoup, int] : soup 对象 和 状态码
     """
+    status_code = None
     try:
         target_response = session.get(target_link, headers=headers)
+        status_code = target_response.status_code
         target_response.raise_for_status()
         target_soup = BeautifulSoup(target_response.content.decode('utf-8'), 'html.parser')
-        return target_soup
+        return target_soup, status_code
     except requests.exceptions.RequestException as e:
         logging.error(f"请求链接失败: {e}")
-        return None
+        return None, status_code
+    except Exception as e:
+       logging.error(f"其他错误: {e}")
+       return None, status_code
 
 
 def create_folder(target_date_1, target_date_2, poster_save_path=DEFAULT_POSTER_PATH):
@@ -145,7 +150,7 @@ def get_poster_url(movie_link, session, headers):
         str | None: 海报链接的 URL 字符串, 或 None
     """
     try:
-        movie_soup = crawl_link(movie_link, session, headers)
+        movie_soup, status_code = crawl_link(movie_link, session, headers)
 
         if movie_soup:
             poster_img_url_element = movie_soup.select_one("#mainpic > a")
@@ -156,7 +161,7 @@ def get_poster_url(movie_link, session, headers):
                     return poster_img_url
                 else:
                     # 进入海报列表
-                    poster_img_soup = crawl_link(poster_img_url, session, headers)
+                    poster_img_soup, status_code = crawl_link(poster_img_url, session, headers)
 
                 if poster_img_soup:
                     fst_poster_url_element = poster_img_soup.select_one(
@@ -164,7 +169,7 @@ def get_poster_url(movie_link, session, headers):
                         )
                     if fst_poster_url_element:
                         # 进入最终海报
-                        poster_final_soup = crawl_link(fst_poster_url_element['href'], session, headers)
+                        poster_final_soup, status_code = crawl_link(fst_poster_url_element['href'], session, headers)
 
                         if poster_final_soup:
                             logging.debug("成功进入最终海报")
@@ -224,16 +229,14 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
     
     while True:
         page_processed = (int(page_id) - 1) * 15
-        viewed_movie_url = f"https://movie.douban.com/people/180548717/collect?start={page_processed}&sort=time&rating=all&mode=grid&type=all&filter=all"
+        viewed_movie_url = f"https://movie.douban.com/people/122336654/collect?start={page_processed}&sort=time&rating=all&mode=grid&type=all&filter=all"
 
         headers = get_headers(cookies, viewed_movie_url)
 
-        response = requests.get(viewed_movie_url, headers=headers)
-
-        if response.status_code == 200:
+        soup, status_code = crawl_link(viewed_movie_url, session, headers)
+        if soup:
             print(f"NOW IN {viewed_movie_url}")
             try:
-                soup = BeautifulSoup(response.content.decode('utf-8'), 'html.parser') 
                 # 打印响应的 HTML 以调试
                 # print(soup.prettify())
                 # 1. 找到所有包含电影条目的 div 元素
@@ -245,7 +248,7 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
                 # 1. 遍历每个电影条目 div 元素
                 for movie_element in viewed_movie_elements:
                     movie_start_time = time.perf_counter() # 启动单个电影条目的计时器
-                       # 2. 获取观看日期和链接
+                    # 2. 获取观看日期和链接
                     viewed_date_text, movie_link = get_movie_info(movie_element)
 
                     if viewed_date_text:
@@ -273,13 +276,10 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
                 # Going to the next page.
                 page_id += 1
             
-            except requests.exceptions.RequestException as e:
-                print(f"请求网页失败: {e}")
             except Exception as e:
                 print(f"ERROR: {e}")
         else:
-            print(f"请求失败! 状态码: {response.status_code}")
-            print(response.text)
+            logging.debug(f"请求失败! 状态码: {status_code}")
         
         if not viewed_movie_elements or (viewed_date_text and not compare_date(target_date_1, target_date_2, viewed_date_text)):
             break

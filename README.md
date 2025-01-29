@@ -21,10 +21,25 @@
 
 ## 支持平台 (Supported Platforms)
 
-*   **微博 (Weibo):** 自动发微博。
-*   **豆瓣 (Douban):** 批量管理豆瓣标签；标记条目；设置条目隐私。
-*   **Steam:** 抓取游戏信息、玩家数据等。
-*   **Eudic**: 欧路词典语境翻译API。
+**微博 (Weibo):**
+
+* 自动发微博
+* 评论/点赞 API
+
+**豆瓣 (Douban):**
+
+* 批量管理豆瓣影视/书籍*标签*
+* 自定义影视/书籍*标记和短评*
+* 批量设置影视/书籍隐私*仅自己可见*
+
+**网易云音乐:**
+
+* 批量抓取个人歌曲信息
+* 数据分析和可视化
+
+**Steam:** 抓取游戏信息、玩家数据
+
+**Eudic**: 欧路词典语境翻译 API
 
 ## 项目结构 (Project Structure)
 
@@ -38,7 +53,7 @@ Gazer
 │  │      ├─ TagAssassin_v2.py                              
 │  │      ├─ get_item_info.py                               
 │  │      └─ MovieWishlister.py
-│  └──────── PosterBandit.py                             
+│  └─ PosterBandit.py                             
 ├─ how-tos                                                  
 │  ├─ Selenium：批量将豆瓣书影标记设置为"仅自己可见".md          // `no_peeking.py` `no_peeking4book.py`
 │  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md         //`game_scraper.py` `player_scraper.py`
