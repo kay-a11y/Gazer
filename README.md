@@ -31,26 +31,28 @@
 ```
 Gazer                                                                                                     
 ├─ DoubanGaze                                               
-│  └─ src                                                   
-│     ├─ no_peeking.py                                      
-│     ├─ no_peeking4book.py                                 
-│     └─ API
-│         ├─ TagAssassin_v2.py                              
-│         ├─ get_item_info.py                               
-│         └─ MovieWishlister.py                             
+│  ├─ src                                                   
+│  │  ├─ no_peeking.py                                      
+│  │  ├─ no_peeking4book.py                                 
+│  │  └─ API
+│  │      ├─ TagAssassin_v2.py                              
+│  │      ├─ get_item_info.py                               
+│  │      └─ MovieWishlister.py
+│  └──────── PosterBandit.py                             
 ├─ how-tos                                                  
-│  ├─ 基于 Selenium 的批量将豆瓣书影标记设置为"仅自己可见".md    // `no_peeking.py` `no_peeking4book.py`
-│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md        //`game_scraper.py` `player_scraper.py`
-│  ├─ 基于 Selenium 的自动发微博脚本 (m.weibo.cn 版).md       // `GhostwriterWeibo_v2.py`
-│  ├─ 使用 JS 注入绕过 msedgedriver 的字符处理逻辑并触发表单提交元素.md // `GhostwriterWeibo_v2.py`
-│  ├─ Weibo_API_Exploration.md                             // `GhostwriterWeibo_v2.py`
-│  ├─ Weibo_API_Exploration2.md                            // `comment_weibo_api.py` `like_weibo_api.py`
-│  ├─ 欧路词典语境翻译API.md                                 // `eudic_api.py`
-│  ├─ 模拟请求/api批量管理豆瓣标签.md                         // `TagAssassin_v2.py`
-│  ├─ 豆瓣API-我在IDE上标记想看的电影.md                      // `get_item_info.py` `MovieWishlister.py`
-│  ├─ Selenium/Requests爬取网易云音乐“我喜欢的”及评论数API分析.md  // `access_cookie.py` `yo_i_pwned_your_playlist.py` `get_comment.py`
-│  ├─ 网易云音乐歌名可视化：词云生成与GitHub-Pages部署实践.md   // `utils.py` `visualization.py` `main.py`
-│  └─ DISCLAIMER.md                                        // Reading this will level up your geek cred. +1000 XP 🫰🏻  
+│  ├─ Selenium：批量将豆瓣书影标记设置为"仅自己可见".md          // `no_peeking.py` `no_peeking4book.py`
+│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md         //`game_scraper.py` `player_scraper.py`
+│  ├─ Selenium：自动发微博脚本 (m.weibo.cn 版).md              // `GhostwriterWeibo_v2.py`
+│  ├─ 使用 JS 注入绕过 msedgedriver 的字符处理逻辑.md          // `GhostwriterWeibo_v2.py`
+│  ├─ Weibo_API_Exploration.md                               // `GhostwriterWeibo_v2.py`
+│  ├─ Weibo_API_Exploration2.md                              // `comment_weibo_api.py` `like_weibo_api.py`
+│  ├─ 欧路词典语境翻译API.md                                  // `eudic_api.py`
+│  ├─ 模拟请求/api批量管理豆瓣标签.md                          // `TagAssassin_v2.py`
+│  ├─ 豆瓣API-我在IDE上标记想看的电影.md                       // `get_item_info.py` `MovieWishlister.py`
+│  ├─ Selenium/Requests：网易云音乐“我喜欢的”及评论数API分析.md // `access_cookie.py` `yo_i_pwned_your_playlist.py` `get_comment.py`
+│  ├─ 网易云音乐歌名可视化：词云生成与GitHub-Pages部署.md        // `utils.py` `visualization.py` `main.py`
+│  ├─ 豆瓣高清海报：深度爬虫与requests进阶
+│  └─ DISCLAIMER.md                   // Reading this will level up your geek cred. +1000 XP 🫰🏻  
 ├─ .gitignore   
 ├─ index_files
 ├─ index.html

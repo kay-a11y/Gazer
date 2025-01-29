@@ -10,3 +10,4 @@ wordcloud
 matplotlib
 jieba
 numpy
+urllib3
