@@ -8,6 +8,14 @@
 
 即使在没有 JS 基础语法知识的情况下, 有一些更简单的方法也能帮助新手快速入门逆向工程.
 
+## 脚本地址：
+
+[send_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/send_weibo_api.py)
+
+[get_cookie_and_st.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/get_cookie_and_st.py)
+
+[go_update_mycookie.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/go_update_mycookie.py)
+
 ## **逆向工程的准备工作**
 
 通过分析网络请求来尝试理解微博 API 的工作原理. 
@@ -1282,11 +1290,3 @@ def send_weibo(content, visible=6, cookie=None, x_xsrf_token=None):
 ***不开源的人是戒过毒啊?!***
 
 ***Have Fun!!***
-
-## 脚本地址：
-
-[send_weibo_api.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/send_weibo_api.py)
-
-[get_cookie_and_st.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/get_cookie_and_st.py)
-
-[go_update_mycookie.py](https://github.com/kay-a11y/Gazer/tree/main/WeiboGaze/src/API/go_update_mycookie.py)

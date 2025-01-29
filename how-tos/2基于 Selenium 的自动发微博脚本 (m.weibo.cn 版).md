@@ -12,6 +12,10 @@ Hi!! 分享一个刚写的自动发微博的 Python 脚本!
 *   开启网页容易影响代码专注力, 看见微博就想刷停不下来
 *   让 IDE **cover** 程序员/媛们, 即使是工作中也可以在IDE中尽情输出! （毕竟，谁会想到你在 IDE 里发微博呢？😏）
 
+### **脚本地址:** 
+
+[GhostwriterWeibo_v2.py](https://github.com/kay-a11y/Gazer/blob/main/WeiboGaze/src/GhostwriterWeibo_v2.py)
+
 ## **目标很明确：**
 
 *   自动登录微博
@@ -238,6 +242,3 @@ weibo_textarea.send_keys("这是我的第一条自动发布的微博！")
 *   **`cookies_str`:** 修改成你自己的 `m.weibo.cn` 的 Cookie 字符串.
 *   **图片保存路径:** `read_my_pics_from_clip` 函数中的 `save_dir` 修改成希望保存图片的路径.
 
-### **脚本地址:** 
-
-[GhostwriterWeibo_v2.py](https://github.com/kay-a11y/Gazer/blob/main/WeiboGaze/src/GhostwriterWeibo_v2.py)

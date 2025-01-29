@@ -17,6 +17,12 @@
 
 ---
 
+## 脚本地址：
+
+[no_peeking.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/no_peeking.py)
+
+[no_peeking4book.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/no_peeking4book.py)
+
 ## **技术选型与环境搭建**
 
 1. **Edge WebDriver**：脚本使用 Edge 浏览器，确保本地已安装对应的 WebDriver。
@@ -200,11 +206,3 @@ edge_options.add_argument("--log-level=3")  # 0: INFO, 1: WARNING, 2: ERROR, 3: 
 - 增加支持的标记类型。
 - 为脚本添加 GUI 界面，提升用户体验。
 - 提高运行效率，优化性能。
-
----
-
-## 脚本地址： 
-
-[no_peeking.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/no_peeking.py)
-
-[no_peeking4book.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/no_peeking4book.py)

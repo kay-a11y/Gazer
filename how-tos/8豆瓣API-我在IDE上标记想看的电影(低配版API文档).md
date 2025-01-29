@@ -4,6 +4,12 @@
 
 我只是想在 IDE 上标记想看的电影, 所以写了这个脚本... 以下是脚本调用的 API 接口使用指南.
 
+## **脚本地址:** 
+
+[MovieWishlister.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/MovieWishlister.py)
+
+[get_item_info.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/get_item_info.py)
+
 ## **脚本运行方式以及使用方法**
 
 1. 在使用 `MovieWishlister.py` 脚本之前, 保证运行过一次 `TagAssassin.py` 中的 `get_all_tags(douban_user_url)` 函数来**更新写入的文件中的标签**, 保证此时是最新的, 以便可看 JSON 文件的标签来核对自己曾自定义的标签名. 因为标签过多可能无法一次性完整列出的 bug, 最好在这里已经运行过整个 `TagAssassin.py` 做过标签清理.
@@ -354,8 +360,3 @@ Host: movie.douban.com
 
 这就是 geek 的浪漫, 你懂吗?
 
-## **脚本地址:** 
-
-[MovieWishlister.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/MovieWishlister.py)
-
-[get_item_info.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/API/get_item_info.py)

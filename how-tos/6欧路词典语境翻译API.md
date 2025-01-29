@@ -5,6 +5,10 @@
 本次逆向源于对欧路词典 AI 翻译功能的好奇。
 接下来将详细记录我如何**通过开发者工具模拟请求调用欧路词典的翻译工具**, 尤其是*语境翻译* 功能。
 
+## 脚本地址：
+
+[eudic_api.py](https://github.com/kay-a11y/Gazer/blob/main/EudicGaze/src/eudic_api.py)
+
 ## 环境
 
 *   Python 3

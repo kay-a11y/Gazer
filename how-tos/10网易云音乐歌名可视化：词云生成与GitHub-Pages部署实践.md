@@ -4,6 +4,14 @@
 
 > 本文将基于前一篇爬取的网易云音乐数据, 利用Python的`wordcloud`、`matplotlib`等库, 对歌名数据进行深入的词云可视化分析. 我们将探索不同`random_state`对词云布局的影响, 并详细介绍如何将生成的词云图部署到GitHub Pages, 实现数据可视化的在线展示. 介绍了如何从原始数据出发, 生成超酷词云图, 并将其部署到 GitHub Pages 上. 
 
+## **脚本地址:** 
+
+[utils.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/utils.py)
+
+[visualization.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/visualization.py)
+
+[main.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/main.py)
+
 ## 词云预览
 
 ![词云预览1](wordcloud.png)
@@ -277,10 +285,3 @@ wordcloud = WordCloud(
 
 开启后直接 push 到仓库同步, 等待 pages 部署完毕就能在 `https://YourGithubUserName.github.io/RepositoryName/` 看到可交互式词云已经成功部署到网站. 
 
-## **脚本地址:** 
-
-[utils.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/utils.py)
-
-[visualization.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/src/visualization.py)
-
-[main.py](https://github.com/kay-a11y/Gazer/blob/main/NeteaseCloudMusicGaze/main.py)
