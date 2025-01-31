@@ -610,4 +610,4 @@ movie_titles = soup.select('div.movie p')
 
 ## 下一篇
 
-[解锁豆瓣高清海报(二) 使用 OpenCV 拼接和压缩](https://github.com/kay-a11y/Gazer/tree/main/how-tos/12%E8%A7%A3%E9%94%81%E8%B1%86%E7%93%A3%E9%AB%98%E6%B8%85%E6%B5%B7%E6%8A%A5(%E4%BA%8C)%20%E4%BD%BF%E7%94%A8%20OpenCV%20%E6%8B%BC%E6%8E%A5%E5%92%8C%E5%8E%8B%E7%BC%A9) 😽
+[解锁豆瓣高清海报(二) 使用 OpenCV 拼接和压缩](https://github.com/kay-a11y/Gazer/blob/main/how-tos/12%E8%A7%A3%E9%94%81%E8%B1%86%E7%93%A3%E9%AB%98%E6%B8%85%E6%B5%B7%E6%8A%A5(%E4%BA%8C)%20%E4%BD%BF%E7%94%A8%20OpenCV%20%E6%8B%BC%E6%8E%A5%E5%92%8C%E5%8E%8B%E7%BC%A9.md) 😽
