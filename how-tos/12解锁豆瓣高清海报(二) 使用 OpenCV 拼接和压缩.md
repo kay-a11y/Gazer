@@ -70,8 +70,6 @@
   for i in range(num_images):
       row = i // cols
       col = i % cols
-      if row = rows or col = cols:
-        break  # 超出预设的行列范围，停止放置图片
       x = col * target_w
       y = row * target_h
       collage[y:y+target_h, x:x+target_w] = processed_images[i]
@@ -81,58 +79,58 @@
 
 **问题出在哪里呢？**
 
-问题在于，这段代码**假设**图片的数量 `num_images` 恰好等于 `rows * cols`。如果 `num_images` 小于 `rows * cols`，循环会尝试访问 `processed_images` 列表中不存在的元素，导致程序出错。
+在拼接图片的过程中，如果遇到图片数量 `num_images` 少于预设的行列数 `rows * cols` 的情况，原始的代码逻辑可能会导致程序尝试访问 `processed_images` 列表中不存在的元素，从而引发错误。
 
-**例如：**
-
-*   `rows` = 3, `cols` = 3, `rows * cols` = 9
-*   `num_images` = 7
-*   当 `i` = 7 的时候, `row` = 7 // 3 = 2, `col` = 7 % 3 = 1. 但是, `processed_images[7]` 并不存在, 因为`processed_images`里面只有7张图片, 索引最大到6.
-
-**修改脚本逻辑，能解决这个问题。**
+**为了解决这个问题，修改代码逻辑，加入安全检查机制。**
 
 **这是修改后的代码：**
 
 ```python
-  for i in range(num_images):
-      row = i // cols
-      col = i % cols
-      if row = rows or col = cols:
-          break  # 超出预设的行列范围，停止放置图片
-      x = col * target_w
-      y = row * target_h
-      collage[y:y+target_h, x:x+target_w] = processed_images[i]
+for i in range(num_images):
+    row = i // cols
+    col = i % cols
+    if row >= rows or col >= cols:
+        break  # 超出预设的行列范围，停止放置图片
+    x = col * target_w
+    y = row * target_h
+    collage[y:y+target_h, x:x+target_w] = processed_images[i]
 ```
 
 **关键在于这行代码：**
 
 ```python
-      if row = rows or col = cols:
-          break  # 超出预设的行列范围，停止放置图片
+    if row >= rows or col >= cols:
+        break  # 超出预设的行列范围，停止放置图片
 ```
 
-它的意思是：**在每次循环中，除了计算 `row` 和 `col` 之外，我们还增加了一个判断：如果计算出来的 `row` 大于等于预设的 `rows`，或者 `col` 大于等于预设的 `cols`，就立即跳出循环，不再放置图片。**
+它的作用是：在每次循环迭代中，除了根据 `i` 计算当前图片的 `row` 和 `col` 之外，还增加了一个额外的判断：如果计算出来的 `row` 大于等于预设的 `rows`，或者 `col` 大于等于预设的 `cols`，就立即跳出循环，不再继续放置图片，并结束循环。这确保了循环不会尝试访问 `processed_images` 列表中不存在的元素，也不会在 `collage` 画布的错误位置放置图片。
 
 **为什么这样可以解决问题？**
 
-因为即使 `num_images` 小于 `rows * cols`，循环也不会尝试访问不存在的图片元素了。它会在 `row` 或 `col` 超出范围时自动停止。
+因为 `for i in range(num_images)` 循环只会执行 `num_images` 次，并且 `row` 和 `col` 是基于 `i` 计算得出的，而 `if row >= rows or col >= cols: break` 这行代码可以确保，即使 `num_images` 小于 `rows * cols`，循环也不会尝试访问不存在的图片元素或在超出预设行列范围的位置放置图片。即使 `num_images` 小于 `rows * cols`，循环也会在 `num_images` 次之内结束, 提前结束循环, 避免访问不存在的元素或者在错误位置放置图片。
 
-**还用上面的例子：**
+**让我们通过一个例子来说明：**
 
-*   `rows` = 3, `cols` = 3, `rows * cols` = 9
-*   `num_images` = 7
+*   `rows` = 3 (预设 3 行)
+*   `cols` = 3 (预设 3 列)
+*   `rows * cols` = 9 (总共 9 个格子)
+*   `num_images` = 7 (实际只有 7 张图片)
 
-当 `i` 循环到 6 的时候：
+在这种情况下，`for` 循环会执行 7 次 (因为 `num_images` 是 7)，`i` 的值依次为 0, 1, 2, 3, 4, 5, 6。
+
+**当 `i` 循环到 6 的时候 (放置第 7 张图片)：**
 
 *   `row` = 6 // 3 = 2
 *   `col` = 6 % 3 = 0
-*   `row` (2) 还没有大于等于 `rows` (3), `col` (0) 也没有大于等于 `cols` (3)，所以会继续放置第7张图片(`processed_images[6]`)
+*   `row` (2) 小于 `rows` (3), `col` (0) 小于 `cols` (3)，所以会放置第 7 张图片 (`processed_images[6]`)
 
-当 `i` = 7 的时候, 因为我们已经通过break跳出了循环, 所以不会尝试访问 `processed_images[7]`
+当循环结束时, 不会计算 `i=7` 时的 `row` 和 `col` 了. 因为 `num_images` 是 7, 所以 `for i in range(num_images)` 最后一次循环 `i` 的值是 6.
 
-**这样，即使只有 7 张图片，程序也不会出错了。**
+由于循环在 `i=6` 时结束, 因此循环不会尝试访问 `processed_images[7]`, 也不会计算 `i=7` 时的 `row` 和 `col`。
 
-在上面的例子中，如果只有 7 张图片，最后两格 (第 8 个和第 9 个) 将会是空白的(但看起来是黑色)。因为循环在 `i` 等于 7 的时候, 执行了break, 提前终止了。
+这样，即使只有 7 张图片，程序也不会出错，并且会正确地将 7 张图片放置到 `collage` 画布的前 7 个格子上，剩下的格子将保持空白（在代码中看起来是黑色，因为 `collage` 初始化为黑色背景）。
+
+总结一下，`if row >= rows or col >= cols: break` 这行代码在这里起到了一个额外的保护作用。它确保了在 `num_images` 小于 `rows * cols` 的情况下，循环不会尝试访问不存在的图片元素或在超出预设行列范围的位置放置图片，从而避免了程序出错。即使我们确定 `num_images` 小于 `rows * cols`，这行代码也能增强程序的健壮性，使其能够处理更多不同的情况，并使代码的逻辑更加清晰。
 
 ### 近似无损拼接
 
@@ -192,9 +190,6 @@
 
 为了保证所有图片都能无缝拼接，`process_image` 会将所有图片都调整到相同的尺寸 (`target_size`)。在缩放过程中，根据不同的情况选择不同的插值算法：
 
-*   **缩小图片:** 使用 `cv2.INTER_AREA` 插值算法。这是一种基于局部像素的区域重采样算法，在缩小图片时能够较好地保留图片的质量和细节，避免出现明显的模糊或锯齿。
-*   **放大图片:** 使用 `cv2.INTER_CUBIC` 插值算法。这是一种基于 4x4 像素邻域的立方插值算法，在放大图片时能够获得相对平滑和清晰的结果。
-
 ```python
 # 代码摘自 PixelWeaver.py 的 process_image 函数
 if (img.shape[1]  target_w) or (img.shape[0]  target_h):
@@ -207,7 +202,7 @@ elif (img.shape[1] != target_w) or (img.shape[0] != target_h):
     resized_img = cv2.resize(img, target_size, interpolation = cv2.INTER_CUBIC) # 使用 cv2.INTER_CUBIC 进行放大
 ```
 
-问题来了, 这么大的图无法分享和上传到网上了, 所以还是使用[pixel_squeezer_cv2.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/utils/pixel_squeezer_cv2.py)压缩一下吧.
+问题来了, 115MB 的图无法分享和上传到网上了, 所以还是使用[pixel_squeezer_cv2.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/utils/pixel_squeezer_cv2.py)压缩一下吧.
 
 ## [pixel_squeezer_cv2.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/utils/pixel_squeezer_cv2.py)
 
@@ -217,7 +212,7 @@ elif (img.shape[1] != target_w) or (img.shape[0] != target_h):
 
 **因为不同的图片内容（例如纹理复杂程度、颜色丰富程度）对压缩的敏感度不同。**  有些图片可能压缩到 `quality=40` 还能接受，有些可能到 `quality=50` 就已经出现明显的失真了。
 
-压缩效果示例 (压缩后为 5.28MB ):
+压缩效果示例 (115MB 压缩后为 5.28MB ):
 
 ![压缩效果示例](movie_compressed.jpg)
 
