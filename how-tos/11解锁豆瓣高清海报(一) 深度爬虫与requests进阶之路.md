@@ -1,4 +1,8 @@
-# 解锁豆瓣高清海报：深度爬虫与requests进阶之路
+# 解锁豆瓣高清海报(一) 深度爬虫与requests进阶之路
+
+## **脚本地址:**
+
+[PosterBandit.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/PosterBandit.py)
 
 ## 前瞻
 
@@ -7,10 +11,6 @@
 你是否发现直接从豆瓣爬取下来的海报清晰度很低？ 使用 `.pic .nbg img` CSS 选择器，在 `我看过的影视` 界面找到图片元素并直接爬取（爬取深度为 0），甚至不用太重视 `time.sleep()`。好处是速度超快，坏处是这样爬取的海报都是被压缩过的，画质很差。任何一个脚本小子都不会屈服于这样的质量。
 
 想要爬取**最高清的海报**，答案一定是**增加爬取深度**！
-
-## **脚本地址:**
-
-[PosterBandit.py](https://github.com/kay-a11y/Gazer/blob/main/DoubanGaze/src/PosterBandit.py)
 
 ## 使用方法
 
@@ -383,7 +383,52 @@ movie_titles = soup.select('div.movie p')
             *   `Retry(connect=3, backoff_factor=0.5)` 创建一个 `Retry` 对象，用于定义重试策略。`connect=3` 表示连接错误最多重试 3 次，`backoff_factor=0.5` 表示重试的间隔时间会以 0.5 为系数逐渐增加。
             *   `HTTPAdapter(max_retries=retry)` 创建一个 `HTTPAdapter` 对象，用于将 `Retry` 对象应用到 `requests.Session` 对象中。
             *   `session.mount('http://', adapter)` 和 `session.mount('https://', adapter)` 将 `HTTPAdapter` 对象应用到 `http` 和 `https` 协议的请求中。
-             *  **目的：**  当你的请求因为网络错误或者服务器错误而失败时，`requests` 会自动重试，从而提高你的代码的健壮性。
+            *  **目的：**  当你的请求因为网络错误或者服务器错误而失败时，`requests` 会自动重试，从而提高你的代码的健壮性。
+
+        2. **捕获 HTTPError - 非 200 状态码的重试**
+        *   ** 捕获 418 错误的关键是捕获 `requests` 库抛出的 `HTTPError` 异常，然后根据错误码进行重试。在对关键的图片下载的 418 异常中, 加入重试的机制.
+        *   **为什么只捕获 `HTTPError`？**
+            *   `requests` 库在遇到非 200 状态码（例如 418）时会抛出 `requests.exceptions.HTTPError` 异常， 这种异常是 `requests.exceptions.RequestException` 的子类.
+            *   我们只捕获 `HTTPError`，是因为 `requests.exceptions.RequestException` 可能会捕捉到其他类型的异常。我们希望只在遇到 HTTP 状态码错误时进行重试，而不是其他类型的异常。
+
+        **2. 之前的重试机制针对连接错误**
+
+        *   **之前的重试机制 (通过 `urllib3.util.retry.Retry` 和 `requests.adapters.HTTPAdapter` 实现) 确实是针对连接错误的：**
+            *   `urllib3.util.retry.Retry` 中的 `connect=3` 参数表示针对连接错误（例如 `requests.exceptions.ConnectionError` 或者 socket 错误）最多重试 3 次。
+            *   连接错误通常是指无法建立网络连接的情况，例如 DNS 解析失败、服务器无响应、网络中断等。
+            *   `requests.adapters.HTTPAdapter` 将重试策略应用到 HTTP 请求中，仅当发生连接错误时才会触发重试。
+
+        **3. `requests.exceptions.RequestException` 的作用**
+
+        *   **`requests.exceptions.RequestException` 是一个基类：** 它包含了所有 `requests` 库可能抛出的异常，例如：
+            *   `requests.exceptions.ConnectionError`： 连接错误（例如 DNS 解析失败、服务器无响应）。
+            *   `requests.exceptions.HTTPError`： HTTP 状态码错误（例如 404 Not Found、500 Internal Server Error， **也包括 418**）。
+            *   `requests.exceptions.Timeout`： 请求超时错误。
+            *   `requests.exceptions.TooManyRedirects`： 重定向次数过多错误。
+            *   其他 `requests` 库的异常.
+
+        **2. `raise_for_status()` 的作用**
+
+        *   **`response.raise_for_status()` 的作用是：** 检查 HTTP 响应的状态码。
+            *   **如果状态码是 200 (OK)**： 表示请求成功，代码会继续往下执行。
+            *   **如果状态码不是 200 (例如 404, 418, 500 等)**：  表示请求失败，会抛出一个 `requests.exceptions.HTTPError` 异常。
+        *   **之前的代码已经有 `raise_for_status()`：**
+            *   所以**原本就可以检测 HTTP 状态码错误**，并在遇到错误的时候抛出 `requests.exceptions.HTTPError` 异常.
+            *   **但是，没有处理这个异常，所以之前的代码会因为异常而直接终止， 而不会重试**
+        *   **增加 `try...except HTTPError` 的作用：**
+            *   增加 `try...except HTTPError` 结构是为了**捕获 `raise_for_status()` 抛出的 `HTTPError` 异常。**
+            *   捕获到这个异常后，可以执行一些错误处理逻辑，例如打印错误信息，然后重新发送请求 (即进入下一循环)。
+            *   **所以，增加 `try...except HTTPError` 的核心作用就是让你的代码能够处理 HTTP 状态码错误，并进行重试。**
+
+        **总结**
+
+        *   **捕获 418 错误：** 需要使用 `try...except HTTPError` 来捕获 HTTP 状态码错误。
+        *   **之前的重试机制：** 针对连接错误，而非 HTTP 状态码错误。
+        *   **`requests.exceptions.RequestException`：**
+            *   是一个基类，捕获所有 `requests` 库可能抛出的异常，但是不包括 `HTTPError`, 因为  `raise_for_status()` 会单独抛出 `HTTPError`。
+            *  现在主要用于捕捉下载图片时发生的异常。
+        *   **清晰的错误处理：** 
+            *  使用 `response.raise_for_status()` 并且 `try...except HTTPError` 来进行重试， 这能确保我们只在 HTTP 状态码错误的时候重试。
 
     *   **3.3 减慢请求速度**
         *   **添加 `time.sleep()`：** 在每次请求之前，设置随机的 `time.sleep()`，可以降低爬虫的访问频率，从而减少被网站识别为爬虫的风险。
@@ -436,6 +481,14 @@ movie_titles = soup.select('div.movie p')
 *   **遇到反爬机制强的网站，可以尝试在每一次更深层次爬取的时候，都带上构造好的 `headers`。**
 *   反爬虫策略通常会对深层次的爬取进行更严格的限制，因为深层次的爬取通常会消耗更多的服务器资源。
 
+
+##### **关键思路**
+
+现在脚本只在 `download_poster_images` 的第一次请求中使用了`requests.get` 。
+
+既然我们最终确定了在`download_poster_images` 开头创建 `session` 来 Keep-Alive, 而且确定了整体的爬虫是要深度爬虫, 那么就可以全程都用 `session.get()` 请求每个网址, 不再用`requests.get` 。
+
+在 `crawl_link` 的返回中增加捕获状态码，最终返回 soup 对象 和 状态码的元组, 以便 `get_poster_url` 和 `download_poster_images` 调用, 并方便了在 `download_poster_images` 保持原来的使用日志记录状态码。
 
 ### 优化写入速度
 
@@ -555,8 +608,6 @@ movie_titles = soup.select('div.movie p')
     *   **`time.perf_counter()`：** 用于测量时间间隔，精度高，不受系统时间调整的影响。
     *   **在测量代码执行时间时，通常使用 `time.perf_counter()`，因为它可以提供更高的精度和更稳定的结果。**
 
+## 下一篇
 
-## 待更新
-
-下一篇将完善如何利用 open CV 或 pillow 来自动化拼接 `PosterBandit.py` 保存的图片 😽
-
+[解锁豆瓣高清海报(二) 使用 OpenCV 拼接和压缩](https://github.com/kay-a11y/Gazer/tree/main/how-tos/12%E8%A7%A3%E9%94%81%E8%B1%86%E7%93%A3%E9%AB%98%E6%B8%85%E6%B5%B7%E6%8A%A5(%E4%BA%8C)%20%E4%BD%BF%E7%94%A8%20OpenCV%20%E6%8B%BC%E6%8E%A5%E5%92%8C%E5%8E%8B%E7%BC%A9) 😽
