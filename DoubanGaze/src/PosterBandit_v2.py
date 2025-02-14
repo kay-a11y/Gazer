@@ -1,3 +1,5 @@
+"""优化版海报爬取"""
+
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -50,7 +52,7 @@ def crawl_link(target_link, session, headers):
         target_response = session.get(target_link, headers=headers)
         status_code = target_response.status_code
         target_response.raise_for_status()
-        target_soup = BeautifulSoup(target_response.content.decode('utf-8'), 'html.parser') 
+        target_soup = BeautifulSoup(target_response.content.decode('utf-8'), 'html.parser')
         return target_soup, status_code
     except requests.exceptions.RequestException as e:
         logging.error(f"请求链接失败: {e}")
@@ -101,7 +103,7 @@ def save_poster(poster_src, viewed_date_text, single_poster_save_path, count, he
 
             # 构建图片文件名
             date_filename = viewed_date_text.replace("-", "_")
-            img_filename = f"{date_filename}_{count}.jpg" 
+            img_filename = f"{date_filename}_{count}.jpg" # 加入序号
 
             img_path = os.path.join(single_poster_save_path, img_filename)
 
@@ -140,68 +142,23 @@ def get_movie_elements(soup):
     return soup.select("#content > div.grid-16-8.clearfix > div.article .item.comment-item")
 
 def get_movie_info(movie_element):
-    """从单个电影条目 div 元素中获取并返回观看日期和具体条目链接
+    """从单个电影条目 div 元素中获取并返回观看日期和压缩海报链接
 
     Args:
         movie_element (bs4.element.Tag): 单个电影条目的 div 元素
 
     Returns:
         tuple[str | None, str | None]: 
-        观看日期+具体条目链接的 Tag 对象元组, 或 (None, None)
+        观看日期+压缩海报链接的 Tag 对象元组, 或 (None, None)
     """
     viewed_date_element = movie_element.select_one("div.info span.date")
-    movie_link_element = movie_element.select_one("div.article div.pic > a")
+    compressed_link_element = movie_element.select_one("div.pic img")
 
-    if viewed_date_element and movie_link_element:
+    if viewed_date_element and compressed_link_element:
         viewed_date_text = viewed_date_element.text.strip()
-        movie_link = movie_link_element['href']
-        return viewed_date_text, movie_link
+        compressed_link = compressed_link_element['src']
+        return viewed_date_text, compressed_link
     return None, None
-
-def get_poster_url(movie_link, session, headers):
-    """根据电影详情页链接获取并返回海报链接
-
-    Args:
-        movie_link (str): 具体条目链接的 URL 字符串
-        session (requests.Session): requests.Session 对象
-        headers (dict): 请求头
-
-    Returns:
-        str | None: 海报链接的 URL 字符串, 或 None
-    """
-    try:
-        movie_soup, status_code = crawl_link(movie_link, session, headers)
-
-        if movie_soup:
-            poster_img_url_element = movie_soup.select_one("#mainpic > a")
-            if poster_img_url_element:
-                poster_img_url = poster_img_url_element['href']
-                if poster_img_url.endswith(".webp"):
-                    return poster_img_url
-                else:
-                    poster_img_soup, status_code = crawl_link(poster_img_url, session, headers)
-
-                if poster_img_soup:
-                    fst_poster_url_element = poster_img_soup.select_one(
-                        "#content div.article div.cover > a"
-                        )
-                    if fst_poster_url_element:
-                        poster_final_soup, status_code = crawl_link(fst_poster_url_element['href'], session, headers)
-
-                        if poster_final_soup:
-                            logging.debug("成功进入最终海报")
-                            poster_final_url = poster_final_soup.select_one("#content > div > div.article a.mainphoto > img")
-                            if poster_final_url:
-                                logging.debug("成功找到最终海报")
-                                return poster_final_url['src']
-                            else:
-                                logging.debug("没有找到最终海报")
-                        else:
-                            logging.debug("未进入最终海报")
-    except requests.exceptions.RequestException as e:
-       logging.error(f"请求链接失败: {e}")
-       return None
-    return None
 
 def get_headers(cookies, referer):
     return  {
@@ -210,6 +167,7 @@ def get_headers(cookies, referer):
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
         "Referer": referer,
+        # "Referer": "https://movie.douban.com/",
         "Upgrade-Insecure-Requests": "1",
         "Sec-Fetch-User": "?1",
         "Sec-Fetch-Mode": "navigate",
@@ -261,33 +219,36 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
                 viewed_movie_elements = get_movie_elements(soup)
                 logging.debug(f"Found {len(viewed_movie_elements)} marks. FYI: 15.")
 
-                all_items_not_match = True
+                all_items_not_match = True 
 
-                viewed_date_text = "" 
+                viewed_date_text = "" # 初始化
                 # 1. 遍历每个电影条目 div 元素
                 for movie_element in viewed_movie_elements:
-                    movie_start_time = time.perf_counter() 
-                    # 2. 获取观看日期和链接
-                    viewed_date_text, movie_link = get_movie_info(movie_element)
+                    movie_start_time = time.perf_counter() #
+                    # 2. 获取观看日期和压缩链接
+                    viewed_date_text, compressed_link = get_movie_info(movie_element)
 
                     if viewed_date_text:
                         logging.debug(f"Found date: {viewed_date_text}")
                     
                         if  compare_date(target_date_1, target_date_2, viewed_date_text):
-                            all_items_not_match = False 
+                            all_items_not_match = False # 如果发现符合要求的条目，则修改标记
                             logging.debug(f"{all_items_not_match}, 即将爬取...")
+                            # 3. 构造海报链接
+                            photo_id = compressed_link.split("/")[-1].split(".webp")[0][1:]
+                            poster_link = f"https://img9.doubanio.com/view/photo/l/public/p{photo_id}.webp"
 
-                            # 3. 获取海报链接
-                            if movie_link:
-                                time.sleep(random.randint(2, 5))
-                                fst_poster_url = get_poster_url(movie_link, session, headers) # 传递 session
-                                if fst_poster_url:
-                                    headers = get_headers(cookies, fst_poster_url)
-                                    # 保存海报
-                                    count += 1
-                                    save_poster(fst_poster_url, viewed_date_text, single_poster_save_path, count, headers) 
+                            # 4. 修改 headers，使用 compressed_link 作为 referer
+                            headers = get_headers(cookies, compressed_link)
 
-                    movie_end_time = time.perf_counter() 
+                            # 5. 增加延迟 (重要！)
+                            time.sleep(random.uniform(2, 6)) # 随机延迟 5-15 秒
+                
+                            # 4. 保存海报, 调用 save_poster，并传入 headers
+                            count += 1
+                            save_poster(poster_link, viewed_date_text, single_poster_save_path, count, headers=headers) 
+
+                    movie_end_time = time.perf_counter() # 停止单个电影条目的计时器
                     movie_elapsed_time = movie_end_time - movie_start_time
                     logging.debug(f"单个电影条目爬取耗时：{movie_elapsed_time:.2f} 秒 ⏱️")
 
@@ -309,7 +270,7 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
             print("No more marks. 😺")
             break
     print(f"I have saved {count} posters for U. 😼")
-    end_time = time.perf_counter() 
+    end_time = time.perf_counter() # 停止计时器
     elapsed_time = end_time - start_time
     minutes, seconds = divmod(int(elapsed_time), 60)
     print(f"总耗时：{minutes} 分 {seconds} 秒 🏅") 

@@ -51,7 +51,8 @@ Gazer
 │  ├─ src                                                   
 │  │  ├─ no_peeking.py                                      
 │  │  ├─ no_peeking4book.py
-│  │  ├─ PosterBandit.py                                       
+│  │  ├─ PosterBandit.py
+│  │  ├─ PosterBandit_v2.py                                       
 │  │  └─ API
 │  │      ├─ TagAssassin_v2.py                              
 │  │      ├─ get_item_info.py                               
@@ -72,8 +73,9 @@ Gazer
 │  ├─ 豆瓣API-我在IDE上标记想看的电影.md                       // `get_item_info.py` `MovieWishlister.py`
 │  ├─ Selenium/Requests：网易云音乐“我喜欢的”及评论数API分析.md // `access_cookie.py` `yo_i_pwned_your_playlist.py` `get_comment.py`
 │  ├─ 网易云音乐歌名可视化：词云生成与GitHub-Pages部署.md        // `utils.py` `visualization.py` `main.py`
-│  ├─ 解锁豆瓣高清海报(一) 深度爬虫与requests进阶之路            // `PosterBandit.py`
-│  ├─ 解锁豆瓣高清海报(二) 使用 OpenCV 拼接和压缩               // `pixel_squeezer_cv2.py` `PixelWeaver.py`
+│  ├─ 解锁豆瓣高清海报(一) 深度爬虫与requests进阶之路.md         // `PosterBandit.py`
+│  ├─ 解锁豆瓣高清海报(二) 使用 OpenCV 拼接和压缩.md             // `pixel_squeezer_cv2.py` `PixelWeaver.py`
+│  ├─ 解锁豆瓣高清海报(三) 从深度爬虫到URL构造.md                // `PosterBandit_v2.py`
 │  └─ DISCLAIMER.md                   // Reading this will level up your geek cred. +1000 XP 🫰🏻  
 │                                                 
 ├─ README.md
@@ -164,7 +166,7 @@ Gazer
 
 ## 许可证 (License)
 
-本项目采用 AGPLv3 许可证。详情请参阅 [LICENSE](LICENSE) 文件。
+本项目采用 AGPLv3 许可证。详情请参阅 [AGPLv3](LICENSE) 文件。
 
 ## 联系作者 (Contact)
 
