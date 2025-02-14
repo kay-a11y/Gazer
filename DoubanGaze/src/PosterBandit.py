@@ -79,7 +79,7 @@ def create_folder(target_date_1, target_date_2, poster_save_path=DEFAULT_POSTER_
     print(f"将保存在 {single_poster_save_path} 📂")
     return single_poster_save_path
 
-def save_poster(poster_src, viewed_date_text, single_poster_save_path, count):
+def save_poster(poster_src, viewed_date_text, single_poster_save_path, count, headers):
     """保存单独的海报到本地. 
 
     Args:
@@ -88,6 +88,7 @@ def save_poster(poster_src, viewed_date_text, single_poster_save_path, count):
         single_poster_save_path (string): create_folder 函数返回的
                                     保存每个条目海报图片的文件夹路径 
         count:  当前海报的保存序号
+        header (dict): 请求头
 
     Returns:
         bool: 保存成功为 True, 失败为 False
@@ -95,20 +96,18 @@ def save_poster(poster_src, viewed_date_text, single_poster_save_path, count):
     retry_count = 3  # 设置重试次数
     for attempt in range(retry_count):
         try:
-            img_response = requests.get(poster_src, stream=True)
+            img_response = requests.get(poster_src, stream=True, headers=headers)
             img_response.raise_for_status()
 
             # 构建图片文件名
             date_filename = viewed_date_text.replace("-", "_")
-            img_filename = f"{date_filename}_{count}.jpg" # 加入序号
+            img_filename = f"{date_filename}_{count}.jpg" 
 
             img_path = os.path.join(single_poster_save_path, img_filename)
 
             # 保存图片到本地
             with open(img_path, 'wb') as f:
-                # for chunk in img_response.iter_content(chunk_size=65536):
-                    # f.write(chunk)
-                shutil.copyfileobj(img_response.raw, f) # 直接使用 shutil.copyfileobj
+                shutil.copyfileobj(img_response.raw, f) 
             print(f"img saved {img_path} 🧩")
             return True
         except HTTPError as e:
@@ -116,10 +115,10 @@ def save_poster(poster_src, viewed_date_text, single_poster_save_path, count):
             if e.response.status_code == 418 and attempt < retry_count - 1:
                time.sleep(random.randint(5,10))
                logging.debug("U R A TEAPOT, 我正在重试... ☕")
-               continue # 跳过当前循环, 进入下一循环
+               continue 
             else:
               logging.error(f"请求失败! 已达到最大重试次数, 图片下载失败: {poster_src}")
-              return False # 保存失败, 返回False
+              return False 
         except requests.exceptions.RequestException as e:
             logging.error(f"图片下载失败: {e}")
             return False
@@ -127,7 +126,7 @@ def save_poster(poster_src, viewed_date_text, single_poster_save_path, count):
             logging.error(f"保存图片时出现错误: {e}")
             return False
     logging.error(f"保存图片失败, 达到最大重试次数, {poster_src}")
-    return False # 保存失败, 返回False
+    return False 
 
 def get_movie_elements(soup):
     """从 soup 对象中获取并返回所有包含电影条目的 div 元素
@@ -177,11 +176,9 @@ def get_poster_url(movie_link, session, headers):
             poster_img_url_element = movie_soup.select_one("#mainpic > a")
             if poster_img_url_element:
                 poster_img_url = poster_img_url_element['href']
-                # 如果以 .webp 结尾, 直接返回
                 if poster_img_url.endswith(".webp"):
                     return poster_img_url
                 else:
-                    # 进入海报列表
                     poster_img_soup, status_code = crawl_link(poster_img_url, session, headers)
 
                 if poster_img_soup:
@@ -189,7 +186,6 @@ def get_poster_url(movie_link, session, headers):
                         "#content div.article div.cover > a"
                         )
                     if fst_poster_url_element:
-                        # 进入最终海报
                         poster_final_soup, status_code = crawl_link(fst_poster_url_element['href'], session, headers)
 
                         if poster_final_soup:
@@ -207,14 +203,13 @@ def get_poster_url(movie_link, session, headers):
        return None
     return None
 
-def get_headers(cookies, viewed_movie_url):
+def get_headers(cookies, referer):
     return  {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
         "Cookie": cookies,
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-        "Referer": viewed_movie_url,
-        # "Referer": "https://movie.douban.com/",
+        "Referer": referer,
         "Upgrade-Insecure-Requests": "1",
         "Sec-Fetch-User": "?1",
         "Sec-Fetch-Mode": "navigate",
@@ -239,20 +234,20 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
         requests.exceptions.RequestException: 如果请求网页失败
         Exception: 其他可能发生的错误
     """
-    start_time = time.perf_counter() # 启动计时器
+    start_time = time.perf_counter() 
     single_poster_save_path = create_folder(target_date_1, target_date_2, poster_save_path)
 
-    session = requests.Session() # 在这里创建 session
+    session = requests.Session() 
     retry = Retry(connect=3, backoff_factor=0.5)
     adapter = HTTPAdapter(max_retries=retry)
     session.mount('http://', adapter)
     session.mount('https://', adapter)
     
-    first_page = True # 添加一个标记, 判断是否为第一页.
-    count = 0 # 初始化总的爬取数量
+    first_page = True 
+    count = 0 
     while True:
         page_processed = (int(page_id) - 1) * 15
-        viewed_movie_url = f"https://movie.douban.com/people/166443721/collect?start={page_processed}&sort=time&rating=all&mode=grid&type=all&filter=all"
+        viewed_movie_url = f"https://movie.douban.com/people/133554124/collect?start={page_processed}&sort=time&rating=all&mode=grid&type=all&filter=all"
 
         headers = get_headers(cookies, viewed_movie_url)
 
@@ -266,12 +261,12 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
                 viewed_movie_elements = get_movie_elements(soup)
                 logging.debug(f"Found {len(viewed_movie_elements)} marks. FYI: 15.")
 
-                all_items_not_match = True # 标记当前页面的条目是否全部不符合要求, 用于判断是否需要进入下一页.
+                all_items_not_match = True
 
-                viewed_date_text = "" # 初始化
+                viewed_date_text = "" 
                 # 1. 遍历每个电影条目 div 元素
                 for movie_element in viewed_movie_elements:
-                    movie_start_time = time.perf_counter() # 启动单个电影条目的计时器
+                    movie_start_time = time.perf_counter() 
                     # 2. 获取观看日期和链接
                     viewed_date_text, movie_link = get_movie_info(movie_element)
 
@@ -279,7 +274,7 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
                         logging.debug(f"Found date: {viewed_date_text}")
                     
                         if  compare_date(target_date_1, target_date_2, viewed_date_text):
-                            all_items_not_match = False # 如果发现符合要求的条目，则修改标记
+                            all_items_not_match = False 
                             logging.debug(f"{all_items_not_match}, 即将爬取...")
 
                             # 3. 获取海报链接
@@ -287,22 +282,21 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
                                 time.sleep(random.randint(2, 5))
                                 fst_poster_url = get_poster_url(movie_link, session, headers) # 传递 session
                                 if fst_poster_url:
+                                    headers = get_headers(cookies, fst_poster_url)
                                     # 保存海报
                                     count += 1
-                                    save_poster(fst_poster_url, viewed_date_text, single_poster_save_path, count) 
+                                    save_poster(fst_poster_url, viewed_date_text, single_poster_save_path, count, headers) 
 
-                    movie_end_time = time.perf_counter() # 停止单个电影条目的计时器
+                    movie_end_time = time.perf_counter() 
                     movie_elapsed_time = movie_end_time - movie_start_time
-                    logging.debug(f"单个电影条目爬取耗时：{movie_elapsed_time:.2f} 秒")
+                    logging.debug(f"单个电影条目爬取耗时：{movie_elapsed_time:.2f} 秒 ⏱️")
 
                 # Loop for single page ended here.                        
                 # Going to the next page.
                 if all_items_not_match and not first_page:
-                # 如果该页面所有条目都不符合要求, 且不是第一页, 跳出循环
                     print("Done. 😺")
                     break
                 else:
-                    # 否则, 进入下一页
                     first_page = False
                     page_id += 1
             
@@ -315,18 +309,16 @@ def download_poster_images(cookies, target_date_1, target_date_2, poster_save_pa
             print("No more marks. 😺")
             break
     print(f"I have saved {count} posters for U. 😼")
-    end_time = time.perf_counter() # 停止计时器
+    end_time = time.perf_counter() 
     elapsed_time = end_time - start_time
     minutes, seconds = divmod(int(elapsed_time), 60)
-    print(f"总耗时：{minutes} 分 {seconds} 秒") 
+    print(f"总耗时：{minutes} 分 {seconds} 秒 🏅") 
 
 if __name__ == "__main__":
 
-    target_date_1 = "2025-1-1"  # TODO 填写起始日期 2025-1-1
-    target_date_2 = "2025-1-31" # TODO 填写截止日期 2025-1-31
-
+    target_date_1 = "2024-1-1"  # TODO 填写起始日期 2025-1-1
+    target_date_2 = "2024-12-31" # TODO 填写截止日期 2025-1-31
     print(f"正在爬取 {target_date_1} - {target_date_2} 的海报... 🤖")
-
     poster_save_path = r"E:\Gazer\DoubanGaze\data\poster"
 
     cookies = 'SWEETCOOKIE'
