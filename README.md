@@ -1,5 +1,7 @@
 # Gazer
 
+[English](README_en.md) | 简体中文
+
 [![GitHub Stars](https://img.shields.io/github/stars/kay-a11y/Gazer.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kay-a11y/Gazer/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/kay-a11y/Gazer.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/kay-a11y/Gazer/fork)
 [![GitHub Issues](https://img.shields.io/github/issues/kay-a11y/Gazer.svg)](https://github.com/kay-a11y/Gazer/issues)
@@ -8,117 +10,56 @@
 
 **Gazer** 基于 Python 和 Web 逆向，探索各平台 API 的获取方式，简化数据抓取、分析和自动化各种~~奇怪的~~任务。
 
-本项目为所有脚本提供了详细的文档教程和使用说明。持续更新中🔥🔥🔥
+小白友好! 🌟 本项目为所有脚本提供了详细的文档教程和使用说明。
 
-目前更新了微博、豆瓣、Steam、网易云音乐、欧路词典，晚点🐱更新 Reddit 和 Telegram 等更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
+目前更新了微博、豆瓣、Steam、网易云音乐、欧路词典。未来还将支持更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
+
+持续更新中...🔥
 
 ## 功能特性 (Features)
 
-*   **数据抓取:** 从微博、豆瓣、Steam、网易云音乐等平台抓取数据。
-*   **数据分析:** 对抓取到的数据进行分析和可视化。
-*   **自动化:** 自动化执行一些任务。
-*   **持续更新:** 持续更新中...
+*   **数据抓取:** 从微博、豆瓣、Steam、网易云音乐等平台抓取你感兴趣的数据。
+*   **数据分析:** 分析抓取到的数据，发现有趣的 insights，并进行可视化展示。
+*   **自动化:** 自动化执行各种重复性任务，例如：
+    *   批量管理豆瓣标签
+    *   自动发微博
+    *   ... （更多功能等你来探索！⭐）
+*   **持续更新:** 🥺 喜欢 Gazer 吗？给个小星星支持一下嘛～ 你的星星是我更新的动力哦！✨
 
 ## 支持平台 (Supported Platforms)
 
-**微博 (Weibo):**
+| 平台               | 功能                                                         | 代码链接                                                                                  |
+| :----------------- | :----------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
+| **豆瓣 (Douban)** | 批量管理豆瓣影视/书籍标签 🤓                           | [TagAssassin_v2](/DoubanGaze/src/API/TagAssassin_v2.py)                                 |
+|                    | 自定义影视/书籍标记和短评 📽️                              | [MovieWishlister](/DoubanGaze/src/API/MovieWishlister.py)                               |
+|                    | 获取影视/书籍信息 🎫                              | [get_item_info](/DoubanGaze/src/API/get_item_info.py)                               |
+|                    | 批量设置影视/书籍隐私仅自己可见 🙊                         | [no_peeking](/DoubanGaze/src/no_peeking.py), [no_peeking4book](/DoubanGaze/src/no_peeking4book.py) |
+|                    | 支持指定日期批量爬取影视海报 🧩                           | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
+|                    | 无损智能拼接海报图片 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
+|                    | 压缩图片 📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
+| **微博 (Weibo)**   | 基于 Selenium 在 IDE 上发微博 ⌨️                         | [GhostwriterWeibo_v2](/WeiboGaze/src/GhostwriterWeibo_v2.py)                           |
+|                    | 评论/点赞 API 接口 🗣️                                       | [comment_weibo_api](/WeiboGaze/src/API/comment_weibo_api.py), [like_weibo_api](/WeiboGaze/src/API/like_weibo_api.py) |
+| **网易云音乐**     | 获取评论数 API 接口 🗣️                                       | [get_comment](/NeteaseCloudMusicGaze/src/API/get_comment.py)                             |
+|                    | 批量抓取个人歌曲信息 🎼                                       | [yo_i_pwned_your_playlist](/NeteaseCloudMusicGaze/src/yo_i_pwned_your_playlist.py)         |
+|                    | 数据分析和可视化 🎶                                           | [visualization](/NeteaseCloudMusicGaze/src/visualization.py)                               |
+| **Steam**         | 抓取游戏信息 🕹️                                             | [game_scraper](/SteamGaze/src/game_scraper.py)                                           |
+|                    | 抓取玩家数据 🕹️                                             | [player_scraper](/SteamGaze/src/player_scraper.py)                                         |
+| **欧路词典**       | 欧路词典语境翻译 API 🔣                                      | [eudic_api](/EudicGaze/src/eudic_api.py)                                                   |
 
-* 自动发微博
-* 评论/点赞 API
-
-**豆瓣 (Douban):**
-
-* 批量*管理*豆瓣影视/书籍*标签*
-* 自定义影视/书籍*标记和短评*
-* 批量*设置影视/书籍隐私*仅自己可见
-* 支持指定日期批量爬取*影视海报*
-* 无损智能*拼接*海报图片和*压缩*图片
-
-**网易云音乐 (NeteaseCloudMusic):**
-
-* 批量抓取个人歌曲信息
-* 数据分析和可视化
-
-**Steam:** 抓取游戏信息、玩家数据
-
-**欧路词典 (Eudic)**: 欧路词典语境翻译 API
 
 ## 项目结构 (Project Structure)
 
 ```
-Gazer                                                                                                     
-├─ DoubanGaze                                               
-│  ├─ src                                                   
-│  │  ├─ no_peeking.py                                      
-│  │  ├─ no_peeking4book.py
-│  │  ├─ PosterBandit.py
-│  │  ├─ PosterBandit_v2.py                                       
-│  │  └─ API
-│  │      ├─ TagAssassin_v2.py                              
-│  │      ├─ get_item_info.py                               
-│  │      └─ MovieWishlister.py
-│  └─ utils
-│     ├─ pixel_squeezer_cv2.py                                     
-│     └─ PixelWeaver.py
-│
-├─ how-tos                                                  
-│  ├─ Selenium：批量将豆瓣书影标记设置为"仅自己可见".md          // `no_peeking.py` `no_peeking4book.py`
-│  ├─ 使用 Python 访问 Steam API：玩家与游戏信息提取.md         //`game_scraper.py` `player_scraper.py`
-│  ├─ Selenium：自动发微博脚本 (m.weibo.cn 版).md              // `GhostwriterWeibo_v2.py`
-│  ├─ 使用 JS 注入绕过 msedgedriver 的字符处理逻辑.md          // `GhostwriterWeibo_v2.py`
-│  ├─ Weibo_API_Exploration.md                               // `GhostwriterWeibo_v2.py`
-│  ├─ Weibo_API_Exploration2.md                              // `comment_weibo_api.py` `like_weibo_api.py`
-│  ├─ 欧路词典语境翻译API.md                                  // `eudic_api.py`
-│  ├─ 模拟请求/api批量管理豆瓣标签.md                          // `TagAssassin_v2.py`
-│  ├─ 豆瓣API-我在IDE上标记想看的电影.md                       // `get_item_info.py` `MovieWishlister.py`
-│  ├─ Selenium/Requests：网易云音乐“我喜欢的”及评论数API分析.md // `access_cookie.py` `yo_i_pwned_your_playlist.py` `get_comment.py`
-│  ├─ 网易云音乐歌名可视化：词云生成与GitHub-Pages部署.md        // `utils.py` `visualization.py` `main.py`
-│  ├─ 解锁豆瓣高清海报(一) 深度爬虫与requests进阶之路.md         // `PosterBandit.py`
-│  ├─ 解锁豆瓣高清海报(二) 使用 OpenCV 拼接和压缩.md             // `pixel_squeezer_cv2.py` `PixelWeaver.py`
-│  ├─ 解锁豆瓣高清海报(三) 从深度爬虫到URL构造.md                // `PosterBandit_v2.py`
-│  └─ DISCLAIMER.md                   // Reading this will level up your geek cred. +1000 XP 🫰🏻  
-│                                                 
-├─ README.md
-├─ requirements.txt
-│
-├─ NeteaseCloudMusicGaze
-│   ├─ data
-│   │   ├─ raw
-│   │   │   └─ me_music_data.json
-│   │   └─ title_stopwords.txt
-│   ├─ output
-│   │   └─ visualizations
-│   ├─ src
-│   │   ├─ API
-│   │   │  ├─ __init__.py                  
-│   │   │  └─ get_comment.py
-│   │   ├─ __init__.py                   
-│   │   ├─ access_cookie.py                                              
-│   │   ├─ utils.py 
-│   │   ├─ visualization.py    
-│   │   └─ yo_i_pwned_your_playlist.py    
-│   └─ main.py                           
-│                                                
-├─ SteamGaze                                                
-│  ├─ app_list.json                                         
-│  ├─ data                                                  
-│  └─ src                                                   
-│     ├─ game_scraper.py                                    
-│     └─ player_scraper.py                                  
-├─ WeiboGaze                                                
-│  ├─ data                                                  
-│  │  └─ sendpics                                           
-│  └─ src                                                   
-│     ├─ GhostwriterWeibo_v2.py                             
-│     └─ API                                                
-│         ├─ get_cookie_and_st.py                           
-│         ├─ send_weibo_api.py                             
-│         ├─ go_update_mycookie.py                          
-│         ├─ comment_weibo_api.py                           
-│         └─ like_weibo_api.py                              
-└─ EudicGaze
-     └─ src                                                 
-        └─ eudic_api.py                                     
+Gazer/
+├── DoubanGaze/             # 豆瓣相关功能模块 🫛
+├── WeiboGaze/               # 微博相关功能模块 ⌨️
+├── NeteaseCloudMusicGaze/  # 网易云音乐相关功能模块 🎵
+├── SteamGaze/               # Steam 相关功能模块 🎮
+├── EudicGaze/               # 欧路词典相关功能模块 🔤
+├── how-tos/                 # 教程文档 📚
+├── imgs/                    # 图片资源 🧩
+├── README.md                # 项目说明文档 😸
+└── requirements.txt         # 项目依赖 🖥️
 ```
 
 ## 快速开始 (Quick Start)
@@ -132,7 +73,6 @@ Gazer
     cd Gazer
     pip install -r requirements.txt
     ```
-3. **查看使用指南:**  每个脚本工具的具体使用方法，请参考 `how-tos` 文件夹中的使用指南。
 
 ## 使用指南 (How-Tos)
 
@@ -144,32 +84,14 @@ Gazer
 
 ## **警告和免责声明 (Warning and Disclaimer)**
 
-**本项目仅供学习和研究使用，请勿用于任何非法用途。使用本项目所产生的一切后果与项目作者无关。**
-
-**在使用本项目之前，请务必仔细阅读并理解以下内容：**
-
-*   **合法合规：** **请确保你的行为符合相关法律法规以及你所在平台的用户协议。未经授权的数据抓取和自动化操作可能构成侵权甚至违法行为。**
-*   **隐私保护：** **尊重他人隐私，不要抓取或泄露任何未经授权的个人信息。**
-*   **账号安全：** **使用自动化脚本可能会触发目标网站的反爬虫机制，导致你的账号被限制或封禁。请谨慎使用，并自行承担风险。**
-*   **数据准确性：** **本项目无法保证抓取到的数据的准确性和完整性。**
-*   **代码风险：** **本项目中的代码可能会存在一些安全漏洞或 bug。在使用之前，请务必仔细审查代码，并自行承担风险。**
-*   **停止使用：** **如果你不同意上述任何条款，请立即停止使用本项目。**
-
-**本项目作者对以下情况不承担任何责任：**
-
-*   **因使用本项目而导致的任何直接或间接损失。**
-*   **因使用本项目而导致的任何法律纠纷。**
-*   **因使用本项目而导致的任何账号安全问题。**
-<!-- <a href="https://kutt.it/65Lu8D">HL</a> -->
-
-**请记住，技术本身是中立的，但如何使用技术取决于使用者。请务必合法合规地使用本项目，做一个负责任的网络公民。**
+请参阅 [DISCLAIMER.md](how-tos/DISCLAIMER.md)
 
 ## 许可证 (License)
 
-本项目采用 AGPLv3 许可证。详情请参阅 [AGPLv3](LICENSE) 文件。
+本项目采用 AGPLv3 许可证。详情请参阅 [LICENSE](LICENSE) 文件。
 
 ## 联系作者 (Contact)
 
 任何问题或建议，欢迎通过以下方式联系作者！
 
-*   GitHub Issues: [https://github.com/kay-a11y/Gazer/issues](https://github.com/kay-a11y/Gazer/issues)
+* GitHub Issues: [https://github.com/kay-a11y/Gazer/issues](https://github.com/kay-a11y/Gazer/issues)

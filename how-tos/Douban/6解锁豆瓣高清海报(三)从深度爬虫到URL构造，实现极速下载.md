@@ -63,7 +63,7 @@ V2 版本处理了深度为 1 的数据 (缩略图链接) 和深度为 2 的数�
     2. 这个页面的海报图片元素 CSS 选择器: `#content div.pic img`
 
         1. 以 <绝命毒师 第二季> 为例, 在这里 `<img>` 标签的 source 链接是 `https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2016505705.webp` (可以认为是**数据深度 1**, 因为它直接来源于起始页), 高清海报页面 `https://movie.douban.com/photos/photo/2016505705/` 的海报元素 source 链接是 `https://img9.doubanio.com/view/photo/l/public/p2016505705.webp` (**数据深度 2**, 因为它需要通过详情页才能获取, 或者说, 如果按照 V1 的"点击"流程, 需要经过两层(收藏页 -> 电影详情页 -> 海报大图)页面跳转才能到达).
-            > 注意: ![poster html](.\imgs\poster_html.png) 这个 `div` 中放了 2 个可下载图片资源链接. 首先, 后一个 jpg 链接需要通过 JS 动态加载激活, 直接下载是不可用的; 其次, 一般 WebP 文件会更小, 基于 WebP 更先进的压缩算法, 肉眼观察可能会感觉 WebP 更清晰. 所以这里第一个链接是最优选择.
+            > 注意: ![poster html](/imgs/poster_html.png) 这个 `div` 中放了 2 个可下载图片资源链接. 首先, 后一个 jpg 链接需要通过 JS 动态加载激活, 直接下载是不可用的; 其次, 一般 WebP 文件会更小, 基于 WebP 更先进的压缩算法, 肉眼观察可能会感觉 WebP 更清晰. 所以这里第一个链接是最优选择.
 
         2. 观察两个链接, 可以知道, 只要在这个页面找到第一个链接, 即可构造第二个: `https://img9.doubanio.com/view/photo/l/public/p{photo_id}.webp` (**数据深度 2**, 但 V2 版本是直接构造这个 URL, 没有爬取这个深度的页面)
 

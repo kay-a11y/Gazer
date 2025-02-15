@@ -58,7 +58,7 @@
 
 关于设置目标尺寸 `target_size`, 可以观察爬取的图片的分辨率, 我测试之后使用的数据是 1080 × 1600. 过大的图片会根据中心位置裁剪, 过小的图片使用插值缩放.
 
-![豆瓣海报分辨率](豆瓣海报分辨率.png)
+![豆瓣海报分辨率](/imgs/豆瓣海报分辨率.png)
 
 ### 输入图片数量不足以填满拼接网格的处理
 
@@ -214,7 +214,7 @@ elif (img.shape[1] != target_w) or (img.shape[0] != target_h):
 
 压缩效果示例 (115MB 压缩后为 5.28MB ):
 
-![压缩效果示例](movie_compressed.jpg)
+![压缩效果示例](/imgs/movie_compressed.jpg)
 
 ### `compress_image_cv2` 函数详解
     
