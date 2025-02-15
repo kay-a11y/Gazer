@@ -6,7 +6,7 @@
 
 **Gazer** is based on Python and Web  reverse engineering, aiming to explore how to access APIs on different platforms. Gazer also simplifies data fetching, analysis, and automates some ~~weird~~ tasks.
 
-Beginner-friendly! 🌟 The project offers detailed documentation and guidance for all scripts.
+Beginner-friendly! 🌟 The project offers [detailed documentation and guidance](https://github.com/kay-a11y/Gazer/wiki) for all scripts.
 
 So far, the project has supported platforms like Weibo, Douban, Steam, Netease CloudMusic, and Eudic, and will support more in the future! The project includes various practical and interesting Python scripts. Have fun! 😸
 
@@ -20,7 +20,7 @@ Updating...🔥
     *   mass manage your Douban Tags
     *   Post on Weibo automatically
     *   ... (Come on and find more useful features! ⭐)
-*   **Constant Update:** 🥺 Like Gazer? Just give a star! Your star will be my momentum to update! ✨
+*   **Constant Update:** Like Gazer? Just give a star! Your star will be my momentum to update! ✨
 
 ## Supported Platforms
 
@@ -47,9 +47,9 @@ Updating...🔥
 
 ```
 Gazer/
-├── DoubanGaze/             # Douban related module 🫛
+├── DoubanGaze/              # Douban related module 🫛
 ├── WeiboGaze/               # Weibo related module ⌨️
-├── NeteaseCloudMusicGaze/  # Netease Cloud Music related module 🎵
+├── NeteaseCloudMusicGaze/   # Netease Cloud Music related module 🎵
 ├── SteamGaze/               # Steam related module 🎮
 ├── EudicGaze/               # Eudic Dictionary related module 🔤
 ├── how-tos/                 # Tutorials 📚
@@ -77,9 +77,9 @@ Gazer/
     pip install -r requirements.txt
     ```
 
-## How-Tos
+## Documentation
 
-For detailed tutorials, please refer to the "how-tos" folder.
+For detailed documentation and tutorials, please visit the [Gazer Wiki](https://github.com/kay-a11y/Gazer/wiki).
 
 ## Contributing
 
@@ -87,7 +87,7 @@ Contributions of any kind are welcome! Got an idea? Feel free to open an issue o
 
 ## **Warning and Disclaimer**
 
-Please refer to [DISCLAIMER.md](/how-tos/DISCLAIMER.md)
+Please refer to [DISCLAIMER.md](DISCLAIMER.md)
 
 ## License
 
