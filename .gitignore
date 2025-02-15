@@ -26,4 +26,4 @@ build/
 *.log
 
 # 文档已移动到 Wiki
-.how-tos/
+how-tos/
