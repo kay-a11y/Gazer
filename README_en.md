@@ -1,8 +1,10 @@
-# Gazer [![GitHub Stars](https://img.shields.io/github/stars/kay-a11y/Gazer.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kay-a11y/Gazer/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/kay-a11y/Gazer.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/kay-a11y/Gazer/fork) [![GitHub Issues](https://img.shields.io/github/issues/kay-a11y/Gazer.svg)](https://github.com/kay-a11y/Gazer/issues)
+# Gazer ![Python](https://img.shields.io/badge/Python-rgb(54,110,170)) [![GitHub Stars](https://img.shields.io/github/stars/kay-a11y/Gazer.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kay-a11y/Gazer/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/kay-a11y/Gazer.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/kay-a11y/Gazer/fork) [![GitHub Issues](https://img.shields.io/github/issues/kay-a11y/Gazer.svg)](https://github.com/kay-a11y/Gazer/issues)
 
-简体中文 | [English](README_en.md)
+[简体中文](README.md) | English
 
 ## Introduction
+
+![Gazer](https://img.shields.io/badge/Gazer-v1.0-brightgreen) ![Build](https://img.shields.io/badge/Build-Passing-green)
 
 **Gazer** is based on Python and Web  reverse engineering, aiming to explore how to access APIs on different platforms. Gazer also simplifies data fetching, analysis, and automates some ~~weird~~ tasks.
 
@@ -23,6 +25,8 @@ Updating...🔥
 *   **Constant Update:** Like Gazer? Just give a star! Your star will be my momentum to update! ✨
 
 ## Supported Platforms
+
+![Douban](https://img.shields.io/badge/豆瓣-Douban-rgb(34,194,82)) ![Weibo](https://img.shields.io/badge/微博-Weibo-rgb(175,179,65)) ![NeteaseCloudMusic](https://img.shields.io/badge/网易云音乐-NeteaseCloudMusic-rgb(196,68,68)) ![Steam](https://img.shields.io/badge/Steam-rgb(24,51,141)) ![Eudic](https://img.shields.io/badge/欧路词典-Eudic-rgb(36,91,163))
 
 | Platform               | Feature                               | Code Link                                                   |
 | :----------------- | :----------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
