@@ -6,7 +6,7 @@
 
 **Gazer** 基于 Python 和 Web 逆向，探索各平台 API 的获取方式，简化数据抓取、分析和自动化各种~~奇怪的~~任务。
 
-小白友好! 🌟 本项目为所有脚本提供了详细的文档教程和使用说明。
+小白友好! 🌟 本项目为所有脚本提供了[详细的文档教程和使用说明](https://github.com/kay-a11y/Gazer/wiki)。
 
 目前更新了微博、豆瓣、Steam、网易云音乐、欧路词典。未来还将支持更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
 
@@ -20,7 +20,7 @@
     *   批量管理豆瓣标签
     *   自动发微博
     *   ... （更多功能等你来探索！⭐）
-*   **持续更新:** 🥺 喜欢 Gazer 吗？给个小星星支持一下嘛～ 你的星星是我更新的动力哦！✨
+*   **持续更新:** 喜欢 Gazer 吗？给个小星星支持一下嘛～ 你的星星是我更新的动力哦！✨
 
 ## 支持平台 (Supported Platforms)
 
@@ -47,9 +47,9 @@
 
 ```
 Gazer/
-├── DoubanGaze/             # 豆瓣相关功能模块 🫛
+├── DoubanGaze/              # 豆瓣相关功能模块 🫛
 ├── WeiboGaze/               # 微博相关功能模块 ⌨️
-├── NeteaseCloudMusicGaze/  # 网易云音乐相关功能模块 🎵
+├── NeteaseCloudMusicGaze/   # 网易云音乐相关功能模块 🎵
 ├── SteamGaze/               # Steam 相关功能模块 🎮
 ├── EudicGaze/               # 欧路词典相关功能模块 🔤
 ├── how-tos/                 # 教程文档 📚
@@ -70,9 +70,9 @@ Gazer/
     pip install -r requirements.txt
     ```
 
-## 使用指南 (How-Tos)
+## 使用指南 (Documentation)
 
-详细的使用指南和教程，请参考项目中的 `how-tos` 文件夹
+所有文档和教程，请参阅 [Gazer Wiki](https://github.com/kay-a11y/Gazer/wiki).
 
 ## 贡献 (Contributing)
 
@@ -80,7 +80,7 @@ Gazer/
 
 ## **警告和免责声明 (Warning and Disclaimer)**
 
-请参阅 [DISCLAIMER.md](how-tos/DISCLAIMER.md)
+请参阅 [DISCLAIMER.md](DISCLAIMER.md)
 
 ## 许可证 (License)
 
