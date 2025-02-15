@@ -6,7 +6,7 @@
 
 **Gazer** is based on Python and Web  reverse engineering, aiming to explore how to access APIs on different platforms. Gazer also simplifies data fetching, analysis, and automates some ~~weird~~ tasks.
 
-Beginner-friendly! 🌟 The project offers [detailed documentation and guidance](https://github.com/kay-a11y/Gazer/wiki) for all scripts.
+Beginner-friendly! 🌟 The project offers [detailed documentation and guidance in Wiki](https://github.com/kay-a11y/Gazer/wiki) for all scripts.
 
 So far, the project has supported platforms like Weibo, Douban, Steam, Netease CloudMusic, and Eudic, and will support more in the future! The project includes various practical and interesting Python scripts. Have fun! 😸
 
@@ -52,7 +52,6 @@ Gazer/
 ├── NeteaseCloudMusicGaze/   # Netease Cloud Music related module 🎵
 ├── SteamGaze/               # Steam related module 🎮
 ├── EudicGaze/               # Eudic Dictionary related module 🔤
-├── how-tos/                 # Tutorials 📚
 ├── imgs/                    # Images 🧩
 ├── README.md                # README file 😸
 └── requirements.txt         # Requirements 🖥️
