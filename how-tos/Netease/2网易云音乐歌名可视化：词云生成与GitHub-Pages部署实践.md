@@ -14,9 +14,9 @@
 
 ## 词云预览
 
-![词云预览1](wordcloud.png)
+![词云预览1](/imgs/wordcloud.png)
 
-![词云预览2](wordcloud2.png)
+![词云预览2](/imgs/wordcloud2.png)
 
 ▶️ [词云交互预览](https://kay-a11y.github.io/Gazer/) ◀️
 

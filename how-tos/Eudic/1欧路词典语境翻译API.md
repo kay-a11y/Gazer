@@ -19,7 +19,7 @@
 ### 分析
 
 首先打开任意英文网页, 划词翻译一个单词, 插件会默认跳出语境翻译。
-![划词翻译示例](划词翻译示例.png)
+![划词翻译示例](/imgs/划词翻译示例.png)
 
 打开开发者工具, 筛选条件为 `method:GET eudic`, 找到名为 `MiniDictSearch2?..` 的一条请求, 验证一下载荷:
 
@@ -47,10 +47,10 @@ context: I’m usually on pubs late night looking for teammates
 ### 行动
 
 我将 `pubs` 改成这个上下文中任一单词, 其他不变, 构造网址, 依然可以成功获取翻译信息。确认了请求 URL 的构造. 只要 word 后面添加任意单词: `https://dict.eudic.net/dicts/MiniDictSearch2?word=hello` 就是相当于在网页上查找单词, 但是并不是常规的用户搜索界面。而是像下面这种。
-![构造非常规查词](构造非常规查词.png)
+![构造非常规查词](/imgs/构造非常规查词.png)
 
 如果 `https://dict.eudic.net/dicts/MiniDictSearch2?word=world&context=Hello%20world` 后面加上上下文, 就会在 AI 解释那边自动默认显示语境翻译
-![构造语境查词](构造语境查词.png)
+![构造语境查词](/imgs/构造语境查词.png)
 
 另外, 有两个地方可以找到**最关键的请求接口**: `https://dict.eudic.net/dicts/AiExplainTabStream`
 
@@ -134,7 +134,7 @@ tag: #语境
 *   在两次不同的 `word` 和 `context` 测试中，`AiExplainTabStream` 请求的 `Cookie` 值是相同的，这说明这个 `Cookie` 可能与特定的查询无关，而是与用户会话 (session) 相关。
 *   `MiniDictSearch2` 接口的响应头中有一个 `Set-Cookie` 字段，而没有 `Cookie` 字段，这说明 `MiniDictSearch2` 接口可能是用来设置 `Cookie` 的，而 `AiExplainTabStream` 接口则使用这个 `Cookie` 来进行身份验证或其他操作。
 *   截图中提示了“尝试通过 Set-Cookie 标头设置 Cookie 的操作被禁止了，因为此标头具有“SameSite=Lax”属性但来自一个跨网站响应，而该响应并不是对顶级导航操作的响应。” 这句话说的是阻止跨站伪造请求, 保证安全性。
-    ![设置 cookie 被禁止](设置cookie被禁止.png)
+    ![设置 cookie 被禁止](/imgs/设置cookie被禁止.png)
 
 #### **综上，目前可以知道：**
 
