@@ -33,7 +33,7 @@ Updating...🔥
 | **Douban** | Mass manage Douban film/book tags 🤓                           | [TagAssassin_v2](/DoubanGaze/src/API/TagAssassin_v2.py)                                 |
 |                    | Customize film/book tags and comments 📽️                              | [MovieWishlister](/DoubanGaze/src/API/MovieWishlister.py)                               |
 |                    | Get film/book information 🎫                              | [get_item_info](/DoubanGaze/src/API/get_item_info.py)                               |
-|                    | Mass set film/book as private🙊                 | [no_peeking](/DoubanGaze/src/no_peeking.py), [no_peeking4book](/DoubanGaze/src/no_peeking4book.py) |
+|                    | Mass set film/book privacy🙊                 | [no_peeking](/DoubanGaze/src/no_peeking.py), [no_peeking4book](/DoubanGaze/src/no_peeking4book.py) |
 |                    | Mass crawl film posters by their viewing dates 🧩                  | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | Seamlessly collage posters or any images 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
 |                    | Compress posters/any images  📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
