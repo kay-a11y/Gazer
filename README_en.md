@@ -20,6 +20,7 @@ Updating...🔥
 *   **Data Analysis:** Analyze the data fetched to gain insights and visualize them.
 *   **Automation:** Automate some repetitive tasks, like:
     *   mass manage your Douban Tags
+    *   mass crawl film posters in Douban
     *   Post on Weibo automatically
     *   ... (Come on and find more useful features! ⭐)
 *   **Constant Update:** Like Gazer? Just give a star! Your star will be my momentum to update! ✨
@@ -33,6 +34,7 @@ Updating...🔥
 | **Douban** | Mass manage Douban film/book tags 🤓                           | [TagAssassin_v2](/DoubanGaze/src/API/TagAssassin_v2.py)                                 |
 |                    | Customize film/book tags and comments 📽️                              | [MovieWishlister](/DoubanGaze/src/API/MovieWishlister.py)                               |
 |                    | Get film/book information 🎫                              | [get_item_info](/DoubanGaze/src/API/get_item_info.py)                               |
+|                    | Get film/book rating(no need for cookie) ⭐                              | [movie_rate](/DoubanGaze/src/API/movie_rate_no_crumbs.py), [book_rate](/DoubanGaze/src/API/book_rate_no_crumbs.py)                        |
 |                    | Mass set film/book privacy🙊                 | [no_peeking](/DoubanGaze/src/no_peeking.py), [no_peeking4book](/DoubanGaze/src/no_peeking4book.py) |
 |                    | Mass crawl film posters by their viewing dates 🧩                  | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | Seamlessly collage posters or any images 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
