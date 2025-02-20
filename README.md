@@ -20,6 +20,7 @@
 *   **数据分析:** 分析抓取到的数据，发现有趣的 insights，并进行可视化展示。
 *   **自动化:** 自动化执行各种重复性任务，例如：
     *   批量管理豆瓣标签
+    *   批量爬取豆瓣电影海报
     *   自动发微博
     *   ... （更多功能等你来探索！⭐）
 *   **持续更新:** 喜欢 Gazer 吗？给个小星星支持一下吧～ 你的星星是我更新的动力哦！✨
@@ -34,6 +35,7 @@
 | **豆瓣 (Douban)** | 批量管理豆瓣影视/书籍标签 🤓                           | [TagAssassin_v2](/DoubanGaze/src/API/TagAssassin_v2.py)                                 |
 |                    | 自定义影视/书籍标记和短评 📽️                              | [MovieWishlister](/DoubanGaze/src/API/MovieWishlister.py)                               |
 |                    | 获取影视/书籍信息 🎫                              | [get_item_info](/DoubanGaze/src/API/get_item_info.py)                               |
+|                    | 获取影视/书籍评分 & 评分人数(无须cookie) ⭐                              | [movie_rate](/DoubanGaze/src/API/movie_rate_no_crumbs.py), [book_rate](/DoubanGaze/src/API/book_rate_no_crumbs.py)                        |
 |                    | 批量设置影视/书籍隐私 🙊                         | [no_peeking](/DoubanGaze/src/no_peeking.py), [no_peeking4book](/DoubanGaze/src/no_peeking4book.py) |
 |                    | 指定日期批量爬取影视海报 🧩                           | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | 无损智能拼接海报图片 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
