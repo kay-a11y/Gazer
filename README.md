@@ -28,7 +28,7 @@
 
 ## 支持平台 (Supported Platforms)
 
-![Douban](https://img.shields.io/badge/豆瓣-Douban-rgb(34,194,82)) ![Weibo](https://img.shields.io/badge/微博-Weibo-rgb(175,179,65)) ![NeteaseCloudMusic](https://img.shields.io/badge/网易云音乐-NeteaseCloudMusic-rgb(196,68,68)) ![Steam](https://img.shields.io/badge/Steam-rgb(24,51,141)) ![Eudic](https://img.shields.io/badge/欧路词典-Eudic-rgb(36,91,163))
+![Douban](https://img.shields.io/badge/豆瓣-Douban-rgb(34,194,82)) ![Bilibili](https://img.shields.io/badge/哔哩哔哩-Bilibili-rgb(0,146,208)) ![Weibo](https://img.shields.io/badge/微博-Weibo-rgb(175,179,65)) ![NeteaseCloudMusic](https://img.shields.io/badge/网易云音乐-NeteaseCloudMusic-rgb(196,68,68)) ![Steam](https://img.shields.io/badge/Steam-rgb(24,51,141)) ![Eudic](https://img.shields.io/badge/欧路词典-Eudic-rgb(36,91,163))
 
 
 | 平台               | 功能                                                         | 代码链接                                                                                  |
