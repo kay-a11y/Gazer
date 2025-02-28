@@ -2,7 +2,7 @@
 
 [English](README_en.md) | 简体中文
 
-## 简介 (Introduction) 
+## 简介 (Introduction)
 
 ![Gazer](https://img.shields.io/badge/Gazer-v1.0-brightgreen) ![Build](https://img.shields.io/badge/Build-Passing-green)
 
@@ -10,29 +10,30 @@
 
 小白友好! 🌟 本项目为所有脚本提供了[详细的文档教程和使用说明](https://github.com/kay-a11y/Gazer/wiki)。
 
-目前更新了微博、豆瓣、Steam、网易云音乐、欧路词典。未来还将支持更多平台。本项目包含多个实用/趣味脚本工具。 Have fun!
+目前更新了微博、豆瓣、Bilibili、Steam、网易云音乐、欧路词典。未来还将支持更多平台。本项目包含多个实用/趣味脚本工具。 Have fun! 😸
 
 持续更新中...🔥
 
 ## 功能特性 (Features)
 
-*   **数据抓取:** 从微博、豆瓣、Steam、网易云音乐等平台抓取你感兴趣的数据。
+*   **数据抓取:** 从微博、豆瓣、Bilibili、Steam、网易云音乐等平台抓取你感兴趣的数据。
 *   **数据分析:** 分析抓取到的数据，发现有趣的 insights，并进行可视化展示。
 *   **自动化:** 自动化执行各种重复性任务，例如：
     *   批量管理豆瓣标签
     *   批量爬取豆瓣电影海报
     *   自动发微博
+    *   下载 B 站视频
     *   ... （更多功能等你来探索！⭐）
 *   **持续更新:** 喜欢 Gazer 吗？给个小星星支持一下吧～ 你的星星是我更新的动力哦！✨
 
-## 支持平台 (Supported Platforms) 
+## 支持平台 (Supported Platforms)
 
 ![Douban](https://img.shields.io/badge/豆瓣-Douban-rgb(34,194,82)) ![Weibo](https://img.shields.io/badge/微博-Weibo-rgb(175,179,65)) ![NeteaseCloudMusic](https://img.shields.io/badge/网易云音乐-NeteaseCloudMusic-rgb(196,68,68)) ![Steam](https://img.shields.io/badge/Steam-rgb(24,51,141)) ![Eudic](https://img.shields.io/badge/欧路词典-Eudic-rgb(36,91,163))
 
 
 | 平台               | 功能                                                         | 代码链接                                                                                  |
 | :----------------- | :----------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
-| **豆瓣 (Douban)** | 批量管理豆瓣影视/书籍标签 🤓                           | [TagAssassin_v2](/DoubanGaze/src/API/TagAssassin_v2.py)                                 |
+| **豆瓣** | 批量管理豆瓣影视/书籍标签 🤓                           | [TagAssassin_v2](/DoubanGaze/src/API/TagAssassin_v2.py)                                 |
 |                    | 自定义影视/书籍标记和短评 📽️                              | [MovieWishlister](/DoubanGaze/src/API/MovieWishlister.py)                               |
 |                    | 获取影视/书籍信息 🎫                              | [get_item_info](/DoubanGaze/src/API/get_item_info.py)                               |
 |                    | 获取影视/书籍评分 & 评分人数(无须cookie) ⭐                              | [movie_rate](/DoubanGaze/src/API/movie_rate_no_crumbs.py), [book_rate](/DoubanGaze/src/API/book_rate_no_crumbs.py)                        |
@@ -40,6 +41,7 @@
 |                    | 指定日期批量爬取影视海报 🧩                           | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | 无损智能拼接海报图片 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
 |                    | 压缩图片 📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
+| **哔哩哔哩** | 下载非会员视频 📺                           | [BiliGrab](/BilibiliGaze/src/API/BiliGrab.py)                                 |
 | **微博 (Weibo)**   | 基于 Selenium 在 IDE 上发微博 ⌨️                         | [GhostwriterWeibo_v2](/WeiboGaze/src/GhostwriterWeibo_v2.py)                           |
 |                    | 评论/点赞 API 接口 🗣️                                       | [comment_weibo_api](/WeiboGaze/src/API/comment_weibo_api.py), [like_weibo_api](/WeiboGaze/src/API/like_weibo_api.py) |
 | **网易云音乐**     | 获取评论数 API 接口 🗣️                                       | [get_comment](/NeteaseCloudMusicGaze/src/API/get_comment.py)                             |
@@ -54,6 +56,7 @@
 
 ```
 Gazer/
+├── BilibiliGaze/            # 哔哩哔哩相关功能模块 📺
 ├── DoubanGaze/              # 豆瓣相关功能模块 🫛
 ├── WeiboGaze/               # 微博相关功能模块 ⌨️
 ├── NeteaseCloudMusicGaze/   # 网易云音乐相关功能模块 🎵
