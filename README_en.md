@@ -10,7 +10,7 @@
 
 Beginner-friendly! 🌟 The project offers [detailed documentation and guidance in Wiki](https://github.com/kay-a11y/Gazer/wiki) for all scripts.
 
-So far, the project has supported platforms like Weibo, Douban, Steam, Netease CloudMusic, and Eudic, and will support more in the future! The project includes various practical and interesting Python scripts. Have fun! 😸
+So far, the project has supported platforms like Weibo, Douban, Bilibili, Steam, Netease CloudMusic, and Eudic, and will support more in the future! The project includes various practical and interesting Python scripts. Have fun! 😸
 
 Updating...🔥
 
@@ -22,6 +22,7 @@ Updating...🔥
     *   mass manage your Douban Tags
     *   mass crawl film posters in Douban
     *   Post on Weibo automatically
+    *   Download Bilibili videos
     *   ... (Come on and find more useful features! ⭐)
 *   **Constant Update:** Like Gazer? Just give a star! Your star will be my momentum to update! ✨
 
@@ -39,6 +40,7 @@ Updating...🔥
 |                    | Mass crawl film posters by their viewing dates 🧩                  | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | Seamlessly collage posters or any images 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
 |                    | Compress posters/any images  📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
+| **Bilibili** | Download videos 📺                           | [BiliGrab](/BilibiliGaze/src/API/BiliGrab.py)                                 |
 | **Weibo**   | Post on Weibo in IDE base on Selenium ⌨️                         | [GhostwriterWeibo_v2](/WeiboGaze/src/GhostwriterWeibo_v2.py)                           |
 |                    | Comment/Like Post API 🗣️                                       | [comment_weibo_api](/WeiboGaze/src/API/comment_weibo_api.py), [like_weibo_api](/WeiboGaze/src/API/like_weibo_api.py) |
 | **Netease CloudMusic**     | Get comment count API 🗣️                                       | [get_comment](/NeteaseCloudMusicGaze/src/API/get_comment.py)                             |
@@ -53,6 +55,7 @@ Updating...🔥
 
 ```
 Gazer/
+├── BilibiliGaze/            # Bilibili related module 📺
 ├── DoubanGaze/              # Douban related module 🫛
 ├── WeiboGaze/               # Weibo related module ⌨️
 ├── NeteaseCloudMusicGaze/   # Netease Cloud Music related module 🎵
