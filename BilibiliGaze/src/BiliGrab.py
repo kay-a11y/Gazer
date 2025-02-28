@@ -81,14 +81,14 @@ def download_video(FOLDER_PATH, file_name, request_url):
         print(response.status_code)
 
 if __name__ == '__main__':
-    cookie = 'SWEET_COOKIE' # TODO 
+    cookie = "SWEET_COOKIE" # TODO 
 
     url = "https://www.bilibili.com/video/BV1sp42117UA/?spm_id_from=333.1387.upload.video_card.click&vd_source=8442209456a10c982626f270cd3d9b7c" # TODO
     
     video_file_name = "video.m4s" # TODO give file name 
     audio_file_name = "audio.m4s" # TODO give file name 
 
-    video_url, audio_url = get_url(url)
+    video_url, audio_url = get_url(cookie, url)
 
     if video_url != None and audio_url != None:
         # video
