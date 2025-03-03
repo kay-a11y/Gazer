@@ -12,3 +12,4 @@ matplotlib
 jieba
 numpy
 opencv-python
+lxml
