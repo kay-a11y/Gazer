@@ -17,6 +17,7 @@ def get_url(cookie, url):
 
     Args:
         url (str): direct link to Bilibili video
+        cookie(str): Bilibili Cookie
 
     Returns:
         video_url, audio_url (tuple with 2 strings): request URLs
@@ -30,9 +31,7 @@ def get_url(cookie, url):
     response = requests.get(url, headers=headers)
     response.raise_for_status()
     
-    soup = BeautifulSoup(response.content.decode('utf-8'), 'html.parser')
-
-    play_info_match = re.search(r'window\.__playinfo__\s*=\s*({.*?"video":.*?"audio":.*?"session":.*?})\s*', soup.prettify())
+    play_info_match = re.search(r'window\.__playinfo__\s*=\s*({.*?"video":.*?"audio":.*?"session":.*?})\s*', response.text)
 
     # initialize video_url & audio_url
     video_url = None

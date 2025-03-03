@@ -22,7 +22,7 @@
     *   批量管理豆瓣标签
     *   批量爬取豆瓣电影海报
     *   自动发微博
-    *   下载 B 站视频
+    *   下载 B 站视频和弹幕
     *   ... （更多功能等你来探索！⭐）
 *   **持续更新:** 喜欢 Gazer 吗？给个小星星支持一下吧～ 你的星星是我更新的动力哦！✨
 
@@ -42,6 +42,7 @@
 |                    | 无损智能拼接海报图片 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
 |                    | 压缩图片 📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
 | **哔哩哔哩** | 下载非会员视频 📺                           | [BiliGrab](/BilibiliGaze/src/API/BiliGrab.py)                                 |
+|             | 下载视频弹幕 XML 文件 🔣                           | [dmGrab](/BilibiliGaze/src/API/dmGrab.py)                                 |
 | **微博 (Weibo)**   | 基于 Selenium 在 IDE 上发微博 ⌨️                         | [GhostwriterWeibo_v2](/WeiboGaze/src/GhostwriterWeibo_v2.py)                           |
 |                    | 评论/点赞 API 接口 🗣️                                       | [comment_weibo_api](/WeiboGaze/src/API/comment_weibo_api.py), [like_weibo_api](/WeiboGaze/src/API/like_weibo_api.py) |
 | **网易云音乐**     | 获取评论数 API 接口 🗣️                                       | [get_comment](/NeteaseCloudMusicGaze/src/API/get_comment.py)                             |
