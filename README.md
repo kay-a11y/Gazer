@@ -51,7 +51,7 @@
 | **Steam**         | 抓取游戏信息 🕹️                                             | [game_scraper](/SteamGaze/src/game_scraper.py)                                           |
 |                    | 抓取玩家数据 🕹️                                             | [player_scraper](/SteamGaze/src/player_scraper.py)                                         |
 | **欧路词典**       | 欧路词典语境翻译 API 🔣                                      | [eudic_api](/EudicGaze/src/eudic_api.py)                                                   |
-
+| **YouTube**       | YouTube封面 & 视频下载 🌈                                      | [downloadCover](https://github.com/kay-a11y/Gazer/blob/main/YouTube/API/downloadCover.py), [downloadVideo](https://github.com/kay-a11y/Gazer/blob/main/YouTube/API/downloadVideo.py)                                                   |
 
 ## 项目结构 (Project Structure)
 
@@ -63,6 +63,7 @@ Gazer/
 ├── NeteaseCloudMusicGaze/   # 网易云音乐相关功能模块 🎵
 ├── SteamGaze/               # Steam 相关功能模块 🎮
 ├── EudicGaze/               # 欧路词典相关功能模块 🔤
+├── YouTube/                 # YouTube 相关功能模块 🌈
 ├── imgs/                    # 图片资源 🧩
 ├── README.md                # 项目说明文档 😸
 └── requirements.txt         # 项目依赖 🖥️
