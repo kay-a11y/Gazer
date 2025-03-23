@@ -50,7 +50,7 @@ Updating...🔥
 | **Steam**         | Scrape game information 🕹️                                             | [game_scraper](/SteamGaze/src/game_scraper.py)                                           |
 |                    | Scrape player data 🕹️                                             | [player_scraper](/SteamGaze/src/player_scraper.py)                                         |
 | **Eudic**       | AI Translation API 🔣                                      | [eudic_api](/EudicGaze/src/eudic_api.py)                                                   |
-
+| **YouTube**       | YouTube Cover & Video download 🌈                                      | [downloadCover](https://github.com/kay-a11y/Gazer/blob/main/YouTube/API/downloadCover.py), [downloadVideo](https://github.com/kay-a11y/Gazer/blob/main/YouTube/API/downloadVideo.py)                                                   |
 
 ## Project Structure
 
@@ -62,6 +62,7 @@ Gazer/
 ├── NeteaseCloudMusicGaze/   # Netease Cloud Music related module 🎵
 ├── SteamGaze/               # Steam related module 🎮
 ├── EudicGaze/               # Eudic Dictionary related module 🔤
+├── YouTube/                 # YouTube related module 🌈
 ├── imgs/                    # Images 🧩
 ├── README.md                # README file 😸
 └── requirements.txt         # Requirements 🖥️
