@@ -40,8 +40,8 @@ Updating...🔥
 |                    | Mass crawl film posters by their viewing dates 🧩                  | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | Seamlessly collage posters or any images 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
 |                    | Compress posters/any images  📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
-| **Bilibili** | Download videos 📺                           | [BiliGrab](/BilibiliGaze/src/API/BiliGrab.py)                                 |
-|             | Download Bullet Comments XML file for videos 🔣                           | [dmGrab](/BilibiliGaze/src/API/dmGrab.py)                                 |
+| **Bilibili** | Download videos 📺                           | [BiliGrab](/BilibiliGaze/src/BiliGrab.py)                                 |
+|             | Download Bullet Comments XML file for videos 🔣                           | [dmGrab](/BilibiliGaze/src/dmGrab.py)                                 |
 | **Weibo**   | Post on Weibo in IDE base on Selenium ⌨️                         | [GhostwriterWeibo_v2](/WeiboGaze/src/GhostwriterWeibo_v2.py)                           |
 |                    | Comment/Like Post API 🗣️                                       | [comment_weibo_api](/WeiboGaze/src/API/comment_weibo_api.py), [like_weibo_api](/WeiboGaze/src/API/like_weibo_api.py) |
 | **Netease CloudMusic**     | Get comment count API 🗣️                                       | [get_comment](/NeteaseCloudMusicGaze/src/API/get_comment.py)                             |
