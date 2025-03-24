@@ -41,8 +41,8 @@
 |                    | 指定日期批量爬取影视海报 🧩                           | [PosterBandit_v2](/DoubanGaze/src/PosterBandit_v2.py)                                     |
 |                    | 无损智能拼接海报图片 📌                                   | [PixelWeaver](/DoubanGaze/utils/PixelWeaver.py)                                          |
 |                    | 压缩图片 📌                                               | [pixel_squeezer_cv2](/DoubanGaze/utils/pixel_squeezer_cv2.py)                            |
-| **哔哩哔哩** | 下载非会员视频 📺                           | [BiliGrab](/BilibiliGaze/src/API/BiliGrab.py)                                 |
-|             | 下载视频弹幕 XML 文件 🔣                           | [dmGrab](/BilibiliGaze/src/API/dmGrab.py)                                 |
+| **哔哩哔哩** | 下载非会员视频 📺                           | [BiliGrab](/BilibiliGaze/src/BiliGrab.py)                                 |
+|             | 下载视频弹幕 XML 文件 🔣                           | [dmGrab](/BilibiliGaze/src/dmGrab.py)                                 |
 | **微博 (Weibo)**   | 基于 Selenium 在 IDE 上发微博 ⌨️                         | [GhostwriterWeibo_v2](/WeiboGaze/src/GhostwriterWeibo_v2.py)                           |
 |                    | 评论/点赞 API 接口 🗣️                                       | [comment_weibo_api](/WeiboGaze/src/API/comment_weibo_api.py), [like_weibo_api](/WeiboGaze/src/API/like_weibo_api.py) |
 | **网易云音乐**     | 获取评论数 API 接口 🗣️                                       | [get_comment](/NeteaseCloudMusicGaze/src/API/get_comment.py)                             |
