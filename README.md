@@ -1,4 +1,7 @@
-# Gazer ![Python](https://img.shields.io/badge/Python-rgb(54,110,170)) [![GitHub Stars](https://img.shields.io/github/stars/kay-a11y/Gazer.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kay-a11y/Gazer/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/kay-a11y/Gazer.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/kay-a11y/Gazer/fork) [![GitHub Issues](https://img.shields.io/github/issues/kay-a11y/Gazer.svg)](https://github.com/kay-a11y/Gazer/issues)
+# Gazer
+
+![Python](https://img.shields.io/badge/Python-rgb(54,110,170)) [![GitHub Stars](https://img.shields.io/github/stars/kay-a11y/Gazer.svg?style=social&label=Star&maxAge=2592000)](https://github.com/kay-a11y/Gazer/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/kay-a11y/Gazer.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/kay-a11y/Gazer/fork) [![GitHub Issues](https://img.shields.io/github/issues/kay-a11y/Gazer.svg)](https://github.com/kay-a11y/Gazer/issues) [![Commit Activity](https://img.shields.io/github/commit-activity/m/kay-a11y/M3U8-Probe)](https://github.com/kay-a11y/M3U8-Probe/commits/main)
+
 
 [English](README_en.md) | 简体中文
 
